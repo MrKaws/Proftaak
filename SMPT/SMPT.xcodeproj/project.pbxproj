@@ -21,8 +21,9 @@
 		BD07B34F19361190004EBABA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD07B33119361190004EBABA /* UIKit.framework */; };
 		BD07B35719361190004EBABA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BD07B35519361190004EBABA /* InfoPlist.strings */; };
 		BD07B35919361190004EBABA /* SMPTTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BD07B35819361190004EBABA /* SMPTTests.m */; };
-		BD07B364193629C1004EBABA /* NewOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD07B363193629C1004EBABA /* NewOrderViewController.m */; };
 		BD07B367193629CB004EBABA /* CurrentOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD07B366193629CB004EBABA /* CurrentOrderViewController.m */; };
+		BDB71B511936658D004A3D1B /* DrinksListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB71B501936658D004A3D1B /* DrinksListViewController.m */; };
+		BDB71B5419367063004A3D1B /* TableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB71B5319367063004A3D1B /* TableCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,10 +56,12 @@
 		BD07B35419361190004EBABA /* SMPTTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SMPTTests-Info.plist"; sourceTree = "<group>"; };
 		BD07B35619361190004EBABA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BD07B35819361190004EBABA /* SMPTTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SMPTTests.m; sourceTree = "<group>"; };
-		BD07B362193629C1004EBABA /* NewOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewOrderViewController.h; sourceTree = "<group>"; };
-		BD07B363193629C1004EBABA /* NewOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewOrderViewController.m; sourceTree = "<group>"; };
 		BD07B365193629CB004EBABA /* CurrentOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentOrderViewController.h; sourceTree = "<group>"; };
 		BD07B366193629CB004EBABA /* CurrentOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentOrderViewController.m; sourceTree = "<group>"; };
+		BDB71B4F1936658D004A3D1B /* DrinksListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DrinksListViewController.h; path = ../DrinksListViewController.h; sourceTree = "<group>"; };
+		BDB71B501936658D004A3D1B /* DrinksListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DrinksListViewController.m; path = ../DrinksListViewController.m; sourceTree = "<group>"; };
+		BDB71B5219367063004A3D1B /* TableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableCell.h; sourceTree = "<group>"; };
+		BDB71B5319367063004A3D1B /* TableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,8 +124,10 @@
 				BD07B33C19361190004EBABA /* AppDelegate.h */,
 				BD07B33D19361190004EBABA /* AppDelegate.m */,
 				BD07B33F19361190004EBABA /* Main.storyboard */,
-				BD07B362193629C1004EBABA /* NewOrderViewController.h */,
-				BD07B363193629C1004EBABA /* NewOrderViewController.m */,
+				BDB71B4F1936658D004A3D1B /* DrinksListViewController.h */,
+				BDB71B501936658D004A3D1B /* DrinksListViewController.m */,
+				BDB71B5219367063004A3D1B /* TableCell.h */,
+				BDB71B5319367063004A3D1B /* TableCell.m */,
 				BD07B365193629CB004EBABA /* CurrentOrderViewController.h */,
 				BD07B366193629CB004EBABA /* CurrentOrderViewController.m */,
 				BD07B34219361190004EBABA /* ViewController.h */,
@@ -259,9 +264,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD07B364193629C1004EBABA /* NewOrderViewController.m in Sources */,
+				BDB71B5419367063004A3D1B /* TableCell.m in Sources */,
 				BD07B367193629CB004EBABA /* CurrentOrderViewController.m in Sources */,
 				BD07B34419361190004EBABA /* ViewController.m in Sources */,
+				BDB71B511936658D004A3D1B /* DrinksListViewController.m in Sources */,
 				BD07B33E19361190004EBABA /* AppDelegate.m in Sources */,
 				BD07B33A19361190004EBABA /* main.m in Sources */,
 			);
