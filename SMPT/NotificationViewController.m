@@ -7,6 +7,7 @@
 //
 
 #import "NotificationViewController.h"
+#import "WebRequests.h"
 
 @interface NotificationViewController ()
 
@@ -26,7 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    NSArray* array = [WebRequests getNotifications];
 }
 
 - (void)didReceiveMemoryWarning
