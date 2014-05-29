@@ -11,6 +11,6 @@
 @interface WebRequests : NSObject
 
 extern NSString * const NotificationString ;
-+(NSArray*) getNotifications;
-+(void) makeHTTPPostRequest:(NSDictionary*) params url:(NSString*) url;
++(void) getNotifications:(void (^)(Boolean, id, NSError*))block;
++(void) makeHTTPPostRequest:(NSDictionary*) params url:(NSString*) url withBlock: (void (^)(Boolean, id, NSError*))block;
 @end

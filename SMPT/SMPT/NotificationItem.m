@@ -9,8 +9,6 @@
 #import "NotificationItem.h"
 
 @implementation NotificationItem
-NSString* title ;
-int type;
-NSString* content;
+
 
 @end

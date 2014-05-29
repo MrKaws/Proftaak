@@ -1,4 +1,4 @@
-//
+		//
 //  NotificationViewController.m
 //  SMPT
 //
@@ -8,6 +8,7 @@
 
 #import "NotificationViewController.h"
 #import "WebRequests.h"
+#import "NotificationItem.h"
 
 @interface NotificationViewController ()
 
@@ -27,7 +28,47 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSArray* array = [WebRequests getNotifications];
+    void (^notificationBlock)(Boolean, id, NSError*)  =
+    ^(Boolean success,id result, NSError* error){
+        if(success)
+        {
+            NSLog(@"%@",[result class]);
+            //[MBProgressHUD hideHUDForView:self.view animated:YES];
+           // NSDictionary* results = [result valueLists];
+         //   NSArray* results = ([result valueListAttributes]);
+            NSMutableArray* results = [[NSMutableArray alloc]init];
+            NSLog(@"%@",[[result objectForKey:@"1"] class]);
+            [results addObject:[result objectForKey:@"1"]];
+             [results addObject:[result objectForKey:@"2"]];
+            NSMutableArray* notifications = [[NSMutableArray alloc]init];
+            for (NSDictionary* dc in results){
+                NSLog(@"%@", dc.description);
+                NotificationItem* n = [NotificationItem alloc];
+                n.type = [[dc objectForKey:@"type"]integerValue];
+                n.title = [dc objectForKey:@"titel"];
+                n.content = [dc objectForKey:@"content"];
+                NSLog(@"%@",n.content);
+                [notifications  addObject:n];
+                
+                
+            }
+            
+            
+        }
+        
+        else{
+            // tijdelijke error
+           // [MBProgressHUD hideHUDForView:self.view animated:YES];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No network connection"
+                                                            message:@"You must be connected to the internet to use this app."
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }
+        
+    };
+    [WebRequests getNotifications :notificationBlock	];
 }
 
 - (void)didReceiveMemoryWarning

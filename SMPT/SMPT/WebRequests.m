@@ -16,27 +16,31 @@
 #define BASE_URL @"Http://heelveelmeerstuk.nl/"
 NSString * const NotificationString = BASE_URL @"getnotifications.php";
 
-+(void) makeHTTPPostRequest:(NSDictionary*) params url:(NSString*) url {
++(void) makeHTTPPostRequest:(NSDictionary*) params url:(NSString*) url withBlock:(void (^)(Boolean, id, NSError*))block{
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    //AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:  [NSURL URLWithString:url ]];
-   manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    [manager POST:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject	) {
-        NSString *responseStr = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-        NSLog(@"Request Successful, response '%@'", responseStr);
+    //AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:  [NSURL URLWithString:url ]];  
+   manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    [manager POST:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+       // NSString *responseStr = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",[responseObject class]);
+       // NSLog(@"Request Successful, response '%@'", responseStr);
+       // block(true,responseStr,nil);
+        block(true, responseObject,nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
     
     }
-+(NSArray*) getNotifications {
++(void) getNotifications:(void (^)(Boolean, id, NSError*))block {
 
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
                             @"key", @"apikey",
                             @"lastid", @"laatstbekendheid",
                             nil];
-    [WebRequests makeHTTPPostRequest:params url:NotificationString];
-    return nil;
+    [WebRequests makeHTTPPostRequest:params url:NotificationString withBlock:block];
+
+   
   
 }
 @end

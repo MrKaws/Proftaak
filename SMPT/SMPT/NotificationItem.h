@@ -10,4 +10,8 @@
 
 @interface NotificationItem : NSObject
 
+@property NSString* title ;
+@property NSInteger type;
+@property NSString* content;
+
 @end
