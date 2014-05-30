@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "WebRequests.h"
+#import "User.h"
 
 @interface ViewController ()
 
@@ -17,6 +19,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self getUserData];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -25,5 +28,30 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+-(void)getUserData{
+    void (^getUserBlock)(Boolean, id, NSError*)  =
+    ^(Boolean success,id result, NSError* error){
+        if(success)
+        {
+            NSLog(@"%@",[result class]);
+            //[MBProgressHUD hideHUDForView:self.view animated:YES];
+         NSDictionary* dc = result;
+           // NSLog(@"%@",result.description);
+            
+          //  for (NSDictionary* dc in result){
+                NSLog(@"%@", dc.description);
+                User* u = [User alloc];
+                u.id = [[dc objectForKey:@"id"]integerValue];
+                u.first_name = [dc objectForKey:@"voornaam"];
+                u.last_name = [dc objectForKey:@"achternaam"];
+                u.saldo = [[dc objectForKey:@"saldo"]integerValue];
+                NSLog(@"%@",u.first_name);
+                
+                
+            }
+        
+    };
 
+    [WebRequests getUserData:42 withBlock:getUserBlock];
+}
 @end

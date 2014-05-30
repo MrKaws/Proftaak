@@ -15,6 +15,7 @@
 
 #define BASE_URL @"Http://heelveelmeerstuk.nl/"
 NSString * const NotificationString = BASE_URL @"getnotifications.php";
+NSString * const getUserData = BASE_URL @"userdata.php";
 
 +(void) makeHTTPPostRequest:(NSDictionary*) params url:(NSString*) url withBlock:(void (^)(Boolean, id, NSError*))block{
     
@@ -39,8 +40,12 @@ NSString * const NotificationString = BASE_URL @"getnotifications.php";
                             @"lastid", @"laatstbekendheid",
                             nil];
     [WebRequests makeHTTPPostRequest:params url:NotificationString withBlock:block];
-
-   
-  
+}
++(void) getUserData:(NSInteger) userId withBlock:	(void (^)(Boolean, id,NSError*)) block{
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
+                             @"id", [[NSNumber alloc] initWithInteger:userId],
+                             @"key", @"apikey",
+                            nil];
+    [WebRequests makeHTTPPostRequest:params url:getUserData withBlock:block];
 }
 @end

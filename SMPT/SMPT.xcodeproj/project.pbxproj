@@ -27,6 +27,7 @@
 		30C284F719377A9B00E3363D /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C284EF19377A9B00E3363D /* UIWebView+AFNetworking.m */; };
 		30C284FA19377AE300E3363D /* WebRequests.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C284F919377AE200E3363D /* WebRequests.m */; };
 		30C284FE193785B800E3363D /* NotificationItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C284FD193785B800E3363D /* NotificationItem.m */; };
+		30E304BC19387E2F0072EAE4 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E304BB19387E2F0072EAE4 /* User.m */; };
 		BD07B32E19361190004EBABA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD07B32D19361190004EBABA /* Foundation.framework */; };
 		BD07B33019361190004EBABA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD07B32F19361190004EBABA /* CoreGraphics.framework */; };
 		BD07B33219361190004EBABA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD07B33119361190004EBABA /* UIKit.framework */; };
@@ -99,6 +100,8 @@
 		30C284F919377AE200E3363D /* WebRequests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebRequests.m; sourceTree = "<group>"; };
 		30C284FC193785B800E3363D /* NotificationItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationItem.h; sourceTree = "<group>"; };
 		30C284FD193785B800E3363D /* NotificationItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationItem.m; sourceTree = "<group>"; };
+		30E304BA19387E2F0072EAE4 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		30E304BB19387E2F0072EAE4 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		BD07B32A19361190004EBABA /* SMPT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SMPT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD07B32D19361190004EBABA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BD07B32F19361190004EBABA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -214,6 +217,8 @@
 			children = (
 				30C284FC193785B800E3363D /* NotificationItem.h */,
 				30C284FD193785B800E3363D /* NotificationItem.m */,
+				30E304BA19387E2F0072EAE4 /* User.h */,
+				30E304BB19387E2F0072EAE4 /* User.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -402,6 +407,7 @@
 			files = (
 				30C284F619377A9B00E3363D /* UIRefreshControl+AFNetworking.m in Sources */,
 				30C284DA19377A8700E3363D /* AFURLConnectionOperation.m in Sources */,
+				30E304BC19387E2F0072EAE4 /* User.m in Sources */,
 				30C284BF19372A0B00E3363D /* NotificationViewController.m in Sources */,
 				30C284F519377A9B00E3363D /* UIProgressView+AFNetworking.m in Sources */,
 				BDB71B5419367063004A3D1B /* TableCell.m in Sources */,
