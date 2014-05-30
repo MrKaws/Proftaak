@@ -8,6 +8,7 @@
 
 #import "DrinksListViewController.h"
 #import "TableCell.h"
+#import "CurrentDrinksViewController.h"
 
 @interface DrinksListViewController ()
 
@@ -41,8 +42,8 @@
     drinksName = @[@"Cola", @"Fanta", @"7 up", @"Ice Tea", @"Bier", @"Thee", @"Koffie", @"Protein shake",
                    @"Fristy", @"Whisky"];
     drinksPrice = @[@2.50, @2.50, @2.50, @2.50, @3.50, @2.00, @1.50, @3.25, @2.00, @4.00];
+   // drinksPrice = @[@"2.50", @"2.50", @"2.50", @"2.50", @"3.50", @"2.00", @"1.50", @"3.25", @"2.00", @"4.00"];
     drinksName = [drinksName sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
- //   drinksPrice = @[@"Cola", @"Fanta", @"7 up", @"Ice Tea"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -79,6 +80,18 @@
     return cell;
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([[segue identifier] isEqualToString:@"ShowDetails"])
+    {
+        CurrentDrinksViewController *cdv = [segue destinationViewController];
+        NSIndexPath *selectedRow = [self.tableView indexPathForSelectedRow];
+        int row = [selectedRow row];
+       // self.drinksName = [self.drinksName objectAtIndex:selectedRow.row];
+        cdv.drinksModal = @[drinksName[row],drinksPrice[row]];
+    }
+
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath

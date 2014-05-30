@@ -24,6 +24,7 @@
 		BD07B367193629CB004EBABA /* CurrentOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD07B366193629CB004EBABA /* CurrentOrderViewController.m */; };
 		BDB71B511936658D004A3D1B /* DrinksListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB71B501936658D004A3D1B /* DrinksListViewController.m */; };
 		BDB71B5419367063004A3D1B /* TableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB71B5319367063004A3D1B /* TableCell.m */; };
+		BDCFAE2B1937621500AACED5 /* CurrentDrinksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDCFAE2A1937621500AACED5 /* CurrentDrinksViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,10 +59,12 @@
 		BD07B35819361190004EBABA /* SMPTTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SMPTTests.m; sourceTree = "<group>"; };
 		BD07B365193629CB004EBABA /* CurrentOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentOrderViewController.h; sourceTree = "<group>"; };
 		BD07B366193629CB004EBABA /* CurrentOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentOrderViewController.m; sourceTree = "<group>"; };
-		BDB71B4F1936658D004A3D1B /* DrinksListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DrinksListViewController.h; path = ../DrinksListViewController.h; sourceTree = "<group>"; };
-		BDB71B501936658D004A3D1B /* DrinksListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DrinksListViewController.m; path = ../DrinksListViewController.m; sourceTree = "<group>"; };
+		BDB71B4F1936658D004A3D1B /* DrinksListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrinksListViewController.h; sourceTree = "<group>"; };
+		BDB71B501936658D004A3D1B /* DrinksListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrinksListViewController.m; sourceTree = "<group>"; };
 		BDB71B5219367063004A3D1B /* TableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableCell.h; sourceTree = "<group>"; };
 		BDB71B5319367063004A3D1B /* TableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableCell.m; sourceTree = "<group>"; };
+		BDCFAE291937621500AACED5 /* CurrentDrinksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentDrinksViewController.h; sourceTree = "<group>"; };
+		BDCFAE2A1937621500AACED5 /* CurrentDrinksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentDrinksViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +127,8 @@
 				BD07B33C19361190004EBABA /* AppDelegate.h */,
 				BD07B33D19361190004EBABA /* AppDelegate.m */,
 				BD07B33F19361190004EBABA /* Main.storyboard */,
+				BDCFAE291937621500AACED5 /* CurrentDrinksViewController.h */,
+				BDCFAE2A1937621500AACED5 /* CurrentDrinksViewController.m */,
 				BDB71B4F1936658D004A3D1B /* DrinksListViewController.h */,
 				BDB71B501936658D004A3D1B /* DrinksListViewController.m */,
 				BDB71B5219367063004A3D1B /* TableCell.h */,
@@ -270,6 +275,7 @@
 				BDB71B511936658D004A3D1B /* DrinksListViewController.m in Sources */,
 				BD07B33E19361190004EBABA /* AppDelegate.m in Sources */,
 				BD07B33A19361190004EBABA /* main.m in Sources */,
+				BDCFAE2B1937621500AACED5 /* CurrentDrinksViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

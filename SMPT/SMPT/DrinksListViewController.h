@@ -12,4 +12,7 @@
 @property NSArray *drinksID;
 @property NSArray *drinksName;
 @property NSArray *drinksPrice;
+@property NSMutableArray *orderedDrinks;
+@property NSNumber *totalPrice;
+@property NSInteger *drinksAmount;
 @end
