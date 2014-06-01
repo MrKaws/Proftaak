@@ -8,6 +8,7 @@
 
 #import "WebRequests.h"
 #import "AFNetworking.h"
+#import "DataContainer.h"
 #pragma clang diagnostic ignored "-Wobjc-root-class"
 
 
@@ -16,6 +17,7 @@
 #define BASE_URL @"Http://heelveelmeerstuk.nl/"
 NSString * const NotificationString = BASE_URL @"getnotifications.php";
 NSString * const getUserData = BASE_URL @"userdata.php";
+NSString * const sendOrder = BASE_URL @"sendorder.php";
 
 +(void) makeHTTPPostRequest:(NSDictionary*) params url:(NSString*) url withBlock:(void (^)(Boolean, id, NSError*))block{
     
@@ -48,4 +50,15 @@ NSString * const getUserData = BASE_URL @"userdata.php";
                             nil];
     [WebRequests makeHTTPPostRequest:params url:getUserData withBlock:block];
 }
++(void) sendOrder:(NSMutableArray*) orderId withBlock:	(void (^)(Boolean, id,NSError*)) block{
+    NSInteger userId = [DataContainer getUserData];
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
+                            @"id", [[NSNumber alloc] initWithInteger:userId],
+                            @"orderid",orderId,
+                            @"key", @"apikey",
+                            nil];
+    [WebRequests makeHTTPPostRequest:params url:sendOrder withBlock:block];
+
+}
+
 @end

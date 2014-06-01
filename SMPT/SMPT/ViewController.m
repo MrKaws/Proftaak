@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "WebRequests.h"
 #import "User.h"
+#import "DataContainer.h"
 
 @interface ViewController ()
 
@@ -46,6 +47,7 @@
                 u.last_name = [dc objectForKey:@"achternaam"];
                 u.saldo = [[dc objectForKey:@"saldo"]integerValue];
                 NSLog(@"%@",u.first_name);
+            [DataContainer setCurrentUser:u];
                 
                 
             }
