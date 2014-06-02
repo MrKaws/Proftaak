@@ -8,6 +8,8 @@
 
 #import "CurrentDrinksViewController.h"
 #import "DrinksListViewController.h"
+#import "DataContainer.h"
+
 @interface CurrentDrinksViewController ()
 
 @end
@@ -62,7 +64,10 @@
     dvc.drinksPrice = drinksModal[1];
     dvc.drinksAmount = [[tbAmount text] integerValue];
     dvc.totalPrice = [NSNumber numberWithDouble:totalprice];
-    [dvc.orderedDrinks addObject:dvc];
+    NSMutableArray *saveDrink = [DataContainer orderedDrinks];
+    [saveDrink addObject:dvc];
+   // [dvc.orderedDrinks addObject:dvc];
+
     
 }
 @end

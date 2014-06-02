@@ -7,12 +7,14 @@
 //
 
 #import "CurrentOrderViewController.h"
+#import "DataContainer.h"
 
 @interface CurrentOrderViewController ()
 
 @end
 
 @implementation CurrentOrderViewController
+@synthesize lblShowOrder;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,7 +28,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    NSMutableArray *array = [DataContainer orderedDrinks];
+    [lblShowOrder setText: [NSString stringWithFormat:@"%@", [array objectAtIndex:0]]];
 }
 
 - (void)didReceiveMemoryWarning

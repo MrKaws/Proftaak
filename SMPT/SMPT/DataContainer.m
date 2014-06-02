@@ -9,13 +9,22 @@
 #import "DataContainer.h"
 
 @implementation DataContainer
-static User* currentUser;
 
+static User* currentUser;
 +(void)setCurrentUser:(User*) user{
     currentUser = user;
     
 }
 +(User*)getCurrentUser{
     return currentUser;
+}
+
++(NSMutableArray*)orderedDrinks {
+    static NSMutableArray *statArray;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        statArray = [NSMutableArray array];
+    });
+    return statArray;
 }
 @end

@@ -14,4 +14,5 @@
 
 +(void)setCurrentUser:(User*) user;
 +(User*)getCurrentUser;
++(NSMutableArray*)orderedDrinks;
 @end

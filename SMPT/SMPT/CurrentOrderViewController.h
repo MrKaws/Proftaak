@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface CurrentOrderViewController : UIViewController
+@property (strong, nonatomic) IBOutlet UILabel *lblShowOrder;
 
 @end
