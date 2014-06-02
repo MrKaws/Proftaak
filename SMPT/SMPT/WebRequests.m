@@ -51,7 +51,7 @@ NSString * const sendOrder = BASE_URL @"sendorder.php";
     [WebRequests makeHTTPPostRequest:params url:getUserData withBlock:block];
 }
 +(void) sendOrder:(NSMutableArray*) orderId withBlock:	(void (^)(Boolean, id,NSError*)) block{
-    NSInteger userId = [DataContainer getUserData];
+    NSInteger userId = [[DataContainer getCurrentUser]getId ];
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
                             @"id", [[NSNumber alloc] initWithInteger:userId],
                             @"orderid",orderId,

@@ -10,4 +10,7 @@
 
 @implementation User
 
+-(NSInteger) getId{
+    return self.id;
+}
 @end

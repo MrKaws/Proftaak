@@ -13,5 +13,6 @@
 @property NSString* first_name;
 @property NSString* last_name;
 @property NSInteger saldo;
+-(NSInteger) getId;
 
 @end

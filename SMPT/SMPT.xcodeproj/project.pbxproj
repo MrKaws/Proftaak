@@ -22,6 +22,9 @@
 		30C284F519377A9B00E3363D /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C284EB19377A9B00E3363D /* UIProgressView+AFNetworking.m */; };
 		30C284F619377A9B00E3363D /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C284ED19377A9B00E3363D /* UIRefreshControl+AFNetworking.m */; };
 		30C284FE193785B800E3363D /* NotificationItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C284FD193785B800E3363D /* NotificationItem.m */; };
+		30D8097E193D04820073D521 /* WebRequests.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C284F919377AE200E3363D /* WebRequests.m */; };
+		30D8097F193D051B0073D521 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C284CA19377A8700E3363D /* AFNetworkReachabilityManager.m */; };
+		30D80980193D05290073D521 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C284C519377A8700E3363D /* AFHTTPRequestOperationManager.m */; };
 		30E304BC19387E2F0072EAE4 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E304BB19387E2F0072EAE4 /* User.m */; };
 		30E85DBE193B67F9005A2951 /* DataContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E85DBD193B67F9005A2951 /* DataContainer.m */; };
 		BD07B32E19361190004EBABA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD07B32D19361190004EBABA /* Foundation.framework */; };
@@ -357,7 +360,7 @@
 		BD07B32219361190004EBABA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = Fontys;
 				TargetAttributes = {
 					BD07B34A19361190004EBABA = {
@@ -410,6 +413,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30D80980193D05290073D521 /* AFHTTPRequestOperationManager.m in Sources */,
+				30D8097F193D051B0073D521 /* AFNetworkReachabilityManager.m in Sources */,
+				30D8097E193D04820073D521 /* WebRequests.m in Sources */,
 				30C284F619377A9B00E3363D /* UIRefreshControl+AFNetworking.m in Sources */,
 				30C284DA19377A8700E3363D /* AFURLConnectionOperation.m in Sources */,
 				30E304BC19387E2F0072EAE4 /* User.m in Sources */,
@@ -487,7 +493,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -526,7 +531,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -584,7 +588,6 @@
 		BD07B36019361190004EBABA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SMPT.app/SMPT";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -607,7 +610,6 @@
 		BD07B36119361190004EBABA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SMPT.app/SMPT";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
