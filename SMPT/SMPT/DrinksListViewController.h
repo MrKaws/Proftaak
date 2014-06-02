@@ -14,5 +14,5 @@
 @property NSArray *drinksPrice;
 @property NSMutableArray *orderedDrinks;
 @property NSNumber *totalPrice;
-@property NSInteger *drinksAmount;
+@property NSInteger drinksAmount;
 @end

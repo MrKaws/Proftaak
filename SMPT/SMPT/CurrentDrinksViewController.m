@@ -60,7 +60,7 @@
     DrinksListViewController *dvc = [[DrinksListViewController alloc]init];
     dvc.drinksName = drinksModal[0];
     dvc.drinksPrice = drinksModal[1];
-    dvc.drinksAmount = [[tbAmount text]intValue];
+    dvc.drinksAmount = [[tbAmount text] integerValue];
     dvc.totalPrice = [NSNumber numberWithDouble:totalprice];
     [dvc.orderedDrinks addObject:dvc];
     
