@@ -64,9 +64,11 @@
     
     Drink *drink = [[Drink alloc]init];
     NSString* name = drinksModal[0];
+    NSInteger drinksID = [drinksModal[2] integerValue];
    // NSLog(@"drinksModal: %@",name);
     drink.name = name;
     drink.amount = amount;
+    drink.id = drinksID;
    //// NSLog(@"drink amoutn %i",drink.amount);
     NSLog(@"drinkName%@",drink.name);
     

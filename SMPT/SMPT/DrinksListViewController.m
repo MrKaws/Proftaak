@@ -38,7 +38,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    drinksID = @[@1,@2,@3,@4];
+    drinksID = @[@1,@2,@3,@4,@5,@6,@7,@8,@9];
     drinksName = @[@"Cola", @"Fanta", @"7 up", @"Ice Tea", @"Bier", @"Thee", @"Koffie",
                    @"Fristy", @"Whisky"];
     drinksPrice = @[@2.50, @2.50, @2.50, @2.50, @3.50, @2.00, @1.50, @2.00, @4.00];
@@ -88,7 +88,7 @@
         NSIndexPath *selectedRow = [self.tableView indexPathForSelectedRow];
         int row = [selectedRow row];
        // self.drinksName = [self.drinksName objectAtIndex:selectedRow.row];
-        cdv.drinksModal = @[drinksName[row],drinksPrice[row]];
+        cdv.drinksModal = @[drinksName[row],drinksPrice[row], drinksID[row]];
     }
 
 }
