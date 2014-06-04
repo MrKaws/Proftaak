@@ -64,17 +64,17 @@
     
     Drink *drink = [[Drink alloc]init];
     NSString* name = drinksModal[0];
-    NSLog(@"drinksModal: %@",name);
+   // NSLog(@"drinksModal: %@",name);
     drink.name = name;
     drink.amount = amount;
-    NSLog(@"drink amoutn %i",drink.amount);
+   //// NSLog(@"drink amoutn %i",drink.amount);
     NSLog(@"drinkName%@",drink.name);
     
     
     NSMutableArray* existingDrinks = [DataContainer getOrderedDrinks];
-    NSLog(@"existingdrinks: %i",[existingDrinks count]);
+   // NSLog(@"existingdrinks: %i",[existingDrinks count]);
     if (existingDrinks == nil) {
-        NSLog(@"INITIALIZING DRINKS");
+      //  NSLog(@"INITIALIZING DRINKS");
         existingDrinks = [[NSMutableArray alloc]init];
     }
     //NSMutableArray *saveDrink = [[NSMutableArray alloc]init];
