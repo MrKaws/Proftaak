@@ -9,6 +9,7 @@
 #import "WebRequests.h"
 #import "AFNetworking.h"
 #import "DataContainer.h"
+#import "Drink.h"
 #pragma clang diagnostic ignored "-Wobjc-root-class"
 
 
@@ -52,8 +53,15 @@ NSString * const sendOrder = BASE_URL @"sendorder.php";
 }
 +(void) sendOrder:(NSMutableArray*) orderId withBlock:	(void (^)(Boolean, id,NSError*)) block{
     NSInteger userId = [[DataContainer getCurrentUser]getId ];
-    NSDictionary *params = @{@"id": [NSNumber numberWithInteger:userId],
-                             @"orderid":orderId};
+
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    [params addEntriesFromDictionary:@{@"id": [NSNumber numberWithInteger:userId],
+                             @"orderid":orderId}];
+
+    for(Drink* d in orderId){
+        [params addEntriesFromDictionary:@{@"id":[NSNumber numberWithInteger:d.id], @"amount":[NSNumber numberWithInteger:d.amount]}];
+    }
+
     [WebRequests makeHTTPPostRequest:params url:sendOrder withBlock:block];
 
 }
