@@ -10,6 +10,7 @@
 #import "DataContainer.h"
 #import "Drink.h"
 #import "ViewController.h"
+#import "Drink.h"
 
 @interface CurrentOrderViewController ()
 
@@ -36,7 +37,7 @@
     
     for(int i = 0; i < [array count]; i ++){
         Drink* d = (Drink*)[array objectAtIndex:i];
-        NSLog(@"name %@ amount %i",d.name,d.amount);
+       // NSLog(@"name %@ amount %i",d.name,d.amount);
         temp = [NSString stringWithFormat:@"%@%@\t%i\n", temp, d.name, d.amount];
        // temp = [NSString stringWithFormat:@"%@", [array objectAtIndex:i]];
     }

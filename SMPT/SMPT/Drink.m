@@ -21,6 +21,12 @@
 -(NSInteger)getId{
     return self.id;
 }
+/*-(NSDictionary*)dictionaryWithIDandAmount{
+    return @{@"id":[NSNumber numberWithInteger:self.id], @"amount":[NSNumber numberWithInteger:self.amount]};
+}*/
+-(NSString*)dictionaryWithIDandAmount
+{
+    return [NSString stringWithFormat:@"{id:%i,amount:%i}", self.amount, self.amount];}
 
 /*-(void)setName:(NSString *)name{
     name = name;
