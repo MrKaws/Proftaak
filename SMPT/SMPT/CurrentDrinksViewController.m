@@ -71,7 +71,7 @@
     drink.id = drinksID;
    //// NSLog(@"drink amoutn %i",drink.amount);
     NSLog(@"drinkName%@",drink.name);
-    
+    NSLog(@"drinkID%ld", (long)drink.id);
     
     NSMutableArray* existingDrinks = [DataContainer getOrderedDrinks];
    // NSLog(@"existingdrinks: %i",[existingDrinks count]);
