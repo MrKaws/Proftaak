@@ -11,6 +11,7 @@
 @implementation DataContainer
 
 static User* currentUser;
+static NSMutableArray* orderedDrinks;
 +(void)setCurrentUser:(User*) user{
     currentUser = user;
     
@@ -18,13 +19,17 @@ static User* currentUser;
 +(User*)getCurrentUser{
     return currentUser;
 }
-
-+(NSMutableArray*)orderedDrinks {
-    static NSMutableArray *statArray;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        statArray = [NSMutableArray array];
-    });
-    return statArray;
++(void) setOrderedDrinks: (NSMutableArray*) drinks
+{
+    orderedDrinks = drinks;
+}
++(NSMutableArray*)getOrderedDrinks {
+   // static NSMutableArray *statArray;
+    //static dispatch_once_t onceToken;
+    //dispatch_once(&onceToken, ^{
+    //    statArray = [NSMutableArray array];
+    //});
+   // return statArray;
+    return orderedDrinks;
 }
 @end

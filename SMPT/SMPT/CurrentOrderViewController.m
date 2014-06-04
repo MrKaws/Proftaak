@@ -28,8 +28,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSMutableArray *array = [DataContainer orderedDrinks];
-    [lblShowOrder setText: [NSString stringWithFormat:@"%@", [array objectAtIndex:0]]];
+    NSMutableArray *array = [DataContainer getOrderedDrinks];
+    NSString *temp;
+    
+    for(int i = 0; i < [array count]; i ++){
+        
+        temp = [NSString stringWithFormat:@"%@", [array objectAtIndex:i]];
+    }
+    [lblShowOrder setText:temp];
 }
 
 - (void)didReceiveMemoryWarning

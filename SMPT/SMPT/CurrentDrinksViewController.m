@@ -9,6 +9,7 @@
 #import "CurrentDrinksViewController.h"
 #import "DrinksListViewController.h"
 #import "DataContainer.h"
+#import "Drink.h"
 
 @interface CurrentDrinksViewController ()
 
@@ -59,13 +60,21 @@
     
     
     [alert show];
-    DrinksListViewController *dvc = [[DrinksListViewController alloc]init];
-    dvc.drinksName = drinksModal[0];
-    dvc.drinksPrice = drinksModal[1];
-    dvc.drinksAmount = [[tbAmount text] integerValue];
-    dvc.totalPrice = [NSNumber numberWithDouble:totalprice];
-    NSMutableArray *saveDrink = [DataContainer orderedDrinks];
-    [saveDrink addObject:dvc];
+    
+    Drink *drink = [[Drink alloc]init];
+    NSLog(@"drinksModal: %@",drinksModal[0]);
+    drink.name = drinksModal[0];
+    drink.amount = [[tbAmount text]integerValue];
+    
+    
+    NSMutableArray* existingDrinks = [DataContainer getOrderedDrinks];
+    if (existingDrinks == nil) {
+        existingDrinks = [[NSMutableArray alloc]init];
+    }
+    //NSMutableArray *saveDrink = [[NSMutableArray alloc]init];
+    //[saveDrink addObject:dvc];
+    [existingDrinks addObject:drink];
+    [DataContainer setOrderedDrinks:existingDrinks];
    // [dvc.orderedDrinks addObject:dvc];
 
     
