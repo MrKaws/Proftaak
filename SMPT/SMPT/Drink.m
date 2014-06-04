@@ -21,16 +21,19 @@
 -(NSInteger)getId{
     return self.id;
 }
-//
-//-(void)setName:(NSString *)name{
-//    self.name = name;
-//}
+
+/*-(void)setName:(NSString *)name{
+    name = name;
+}
 
 -(void)setAmount:(NSInteger)amount{
-    self.amount = amount;
+    amount = amount;
+}
+-(NSString*) getName{
+    return self.name;
 }
 
 -(void)setId:(NSInteger)id{
     self.id = id;
-}
+}*/
 @end

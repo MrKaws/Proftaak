@@ -10,16 +10,16 @@
 
 @interface Drink : NSObject
 
-@property (nonatomic, strong) NSString* name;
-@property (nonatomic) NSInteger id;
-@property (nonatomic) NSInteger amount;
+@property NSString* name;
+@property  NSInteger id;
+@property  NSInteger amount;
 
--(NSString*)getName;
+/*-(NSString*)getName;
 -(NSInteger)getId;
 -(NSInteger)getAmount;
 
 -(void)setName:(NSString*) name;
 -(void)setId:(NSInteger) id;
--(void)setAmount:(NSInteger) amount;
+-(void)setAmount:(NSInteger) amount;*/
 
 @end
