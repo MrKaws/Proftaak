@@ -23,7 +23,7 @@ NSString * const sendOrder = BASE_URL @"sendorder.php";
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     //AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:  [NSURL URLWithString:url ]];  
-   manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+  manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     [manager POST:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
        // NSString *responseStr = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
         NSLog(@"%@",[responseObject class]);
@@ -31,32 +31,29 @@ NSString * const sendOrder = BASE_URL @"sendorder.php";
        // block(true,responseStr,nil);
         block(true, responseObject,nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@",operation.responseObject);
         NSLog(@"Error: %@", error);
     }];
     
     }
 +(void) getNotifications:(void (^)(Boolean, id, NSError*))block {
 
-    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
-                            @"key", @"apikey",
-                            @"lastid", @"laatstbekendheid",
-                            nil];
+    NSDictionary *params = @{@"key": @"apikey",
+                             @"lastid":	@"laatstbekendheid"};
     [WebRequests makeHTTPPostRequest:params url:NotificationString withBlock:block];
 }
 +(void) getUserData:(NSInteger) userId withBlock:	(void (^)(Boolean, id,NSError*)) block{
-    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
+    NSDictionary *params = @{@"id":[NSNumber numberWithInteger:userId]};
+                            /*[NSDictionary dictionaryWithObjectsAndKeys:
                              @"id", [[NSNumber alloc] initWithInteger:userId],
                              @"key", @"apikey",
-                            nil];
+                            nil];*/
     [WebRequests makeHTTPPostRequest:params url:getUserData withBlock:block];
 }
 +(void) sendOrder:(NSMutableArray*) orderId withBlock:	(void (^)(Boolean, id,NSError*)) block{
     NSInteger userId = [[DataContainer getCurrentUser]getId ];
-    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
-                            @"id", [[NSNumber alloc] initWithInteger:userId],
-                            @"orderid",orderId,
-                            @"key", @"apikey",
-                            nil];
+    NSDictionary *params = @{@"id": [NSNumber numberWithInteger:userId],
+                             @"orderid":orderId};
     [WebRequests makeHTTPPostRequest:params url:sendOrder withBlock:block];
 
 }
