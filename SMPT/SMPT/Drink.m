@@ -21,6 +21,10 @@
 -(NSInteger)getId{
     return self.id;
 }
+
+-(NSNumber*)getTotalPrice{
+    return self.totalPrice;
+}
 /*-(NSDictionary*)dictionaryWithIDandAmount{
     return @{@"id":[NSNumber numberWithInteger:self.id], @"amount":[NSNumber numberWithInteger:self.amount]};
 }*/

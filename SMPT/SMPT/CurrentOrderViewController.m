@@ -18,6 +18,8 @@
 
 @implementation CurrentOrderViewController
 @synthesize lblShowOrder;
+@synthesize lblItems;
+@synthesize lblTotalPrice;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,15 +35,28 @@
     [super viewDidLoad];
     NSMutableArray *array = [DataContainer getOrderedDrinks];
     NSString *temp = @"";
+    NSString *items = @"";
     NSLog(@"array size %i",[array count]);
-    
+    if([array count] == 0){
+        temp = @"Er zijn nog geen bestellingen";
+        [lblShowOrder setText:temp];
+    }
+    items = [NSString stringWithFormat:@"%@\t\t\t%@\t\t\t%@", @"Naam", @"Aantal", @"Bedrag"];
     for(int i = 0; i < [array count]; i ++){
         Drink* d = (Drink*)[array objectAtIndex:i];
+        double totalPrice = [d.totalPrice doubleValue];
        // NSLog(@"name %@ amount %i",d.name,d.amount);
-        temp = [NSString stringWithFormat:@"%@%@\t%i\n", temp, d.name, d.amount];
+        temp = [NSString stringWithFormat:@"%@%@\t\t\t%i\t\t\t\t\t%.2f\n", temp, d.name, d.amount,totalPrice];
        // temp = [NSString stringWithFormat:@"%@", [array objectAtIndex:i]];
     }
     [lblShowOrder setText:temp];
+    [lblItems setText:items];
+    double value = 0;
+    for(Drink *d in array){
+        value =  value + [d.totalPrice doubleValue];
+    }
+    [lblTotalPrice setText:[NSString stringWithFormat:@"%@\t\t\t\t\t\t\t%.2f", @"Totaal: ", value]];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -53,5 +68,15 @@
 - (IBAction)btnOrder:(id)sender {
     ViewController *vc = [[ViewController alloc]init];
     [vc getDrink];
+}
+
+- (IBAction)btnRemoveOrder:(id)sender {
+    NSMutableArray *array = [DataContainer getOrderedDrinks];
+    [array removeAllObjects];
+    if([array count] == 0)
+    {
+        [lblShowOrder setText:@"Er zijn nog geen bestellingen"];
+        NSLog(@"array size: %i", [array count]);
+    }
 }
 @end

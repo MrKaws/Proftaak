@@ -65,10 +65,12 @@
     Drink *drink = [[Drink alloc]init];
     NSString* name = drinksModal[0];
     NSInteger drinksID = [drinksModal[2] integerValue];
+    NSNumber *number = [NSNumber numberWithDouble:totalprice];
    // NSLog(@"drinksModal: %@",name);
     drink.name = name;
     drink.amount = amount;
     drink.id = drinksID;
+    drink.totalPrice = number;
    //// NSLog(@"drink amoutn %i",drink.amount);
     NSLog(@"drinkName%@",drink.name);
     NSLog(@"drinkID%ld", (long)drink.id);
@@ -84,7 +86,6 @@
     [existingDrinks addObject:drink];
     [DataContainer setOrderedDrinks:existingDrinks];
    // [dvc.orderedDrinks addObject:dvc];
-
     
 }
 @end

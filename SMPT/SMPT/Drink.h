@@ -13,7 +13,7 @@
 @property NSString* name;
 @property  NSInteger id;
 @property  NSInteger amount;
-
+@property NSNumber *totalPrice;
 //-(NSDictionary*)dictionaryWithIDandAmount;
 -(NSString*)dictionaryWithIDandAmount;
 /*-(NSString*)getName;

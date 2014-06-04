@@ -11,5 +11,8 @@
 @interface CurrentOrderViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UILabel *lblShowOrder;
 - (IBAction)btnOrder:(id)sender;
+- (IBAction)btnRemoveOrder:(id)sender;
+@property (strong, nonatomic) IBOutlet UILabel *lblTotalPrice;
+@property (strong, nonatomic) IBOutlet UILabel *lblItems;
 
 @end
