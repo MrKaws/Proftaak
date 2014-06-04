@@ -30,11 +30,14 @@
 {
     [super viewDidLoad];
     NSMutableArray *array = [DataContainer getOrderedDrinks];
-    NSString *temp;
+    NSString *temp = @"";
+    NSLog(@"array size %i",[array count]);
     
     for(int i = 0; i < [array count]; i ++){
-        
-        temp = [NSString stringWithFormat:@"%@", [array objectAtIndex:i]];
+        Drink* d = (Drink*)[array objectAtIndex:i];
+        NSLog(@"name %@ amount %i",d.name,d.amount);
+        temp = [NSString stringWithFormat:@"%@%@\t%i\n", temp, d.name, d.amount];
+       // temp = [NSString stringWithFormat:@"%@", [array objectAtIndex:i]];
     }
     [lblShowOrder setText:temp];
 }

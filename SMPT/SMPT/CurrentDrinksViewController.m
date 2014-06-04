@@ -47,6 +47,7 @@
 }
 
 - (IBAction)btnAddDrinks:(id)sender {
+    NSLog(@"%@",[tbAmount text]);
     int amount = [[tbAmount text] intValue];
     double drinksPrice = [drinksModal[1] doubleValue];
     double totalprice = amount * drinksPrice;
@@ -62,13 +63,18 @@
     [alert show];
     
     Drink *drink = [[Drink alloc]init];
-    NSLog(@"drinksModal: %@",drinksModal[0]);
-    drink.name = drinksModal[0];
-    drink.amount = [[tbAmount text]integerValue];
+    NSString* name = drinksModal[0];
+   // NSLog(@"drinksModal: %@",name);
+    drink.name = name;
+    drink.amount = amount;
+   //// NSLog(@"drink amoutn %i",drink.amount);
+    NSLog(@"drinkName%@",drink.name);
     
     
     NSMutableArray* existingDrinks = [DataContainer getOrderedDrinks];
+   // NSLog(@"existingdrinks: %i",[existingDrinks count]);
     if (existingDrinks == nil) {
+      //  NSLog(@"INITIALIZING DRINKS");
         existingDrinks = [[NSMutableArray alloc]init];
     }
     //NSMutableArray *saveDrink = [[NSMutableArray alloc]init];
