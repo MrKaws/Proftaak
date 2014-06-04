@@ -10,4 +10,5 @@
 
 @interface ViewController : UIViewController
 -(void) getUserData;
+-(void) getDrink;
 @end
