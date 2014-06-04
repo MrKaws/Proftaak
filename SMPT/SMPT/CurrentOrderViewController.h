@@ -10,5 +10,6 @@
 
 @interface CurrentOrderViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UILabel *lblShowOrder;
+- (IBAction)btnOrder:(id)sender;
 
 @end

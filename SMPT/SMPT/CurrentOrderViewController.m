@@ -8,6 +8,7 @@
 
 #import "CurrentOrderViewController.h"
 #import "DataContainer.h"
+#import "ViewController.h"
 
 @interface CurrentOrderViewController ()
 
@@ -44,4 +45,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)btnOrder:(id)sender {
+    ViewController *vc = [[ViewController alloc]init];
+    [vc getDrink];
+}
 @end
