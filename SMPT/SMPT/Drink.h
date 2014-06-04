@@ -14,6 +14,8 @@
 @property  NSInteger id;
 @property  NSInteger amount;
 
+//-(NSDictionary*)dictionaryWithIDandAmount;
+-(NSString*)dictionaryWithIDandAmount;
 /*-(NSString*)getName;
 -(NSInteger)getId;
 -(NSInteger)getAmount;
