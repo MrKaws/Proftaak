@@ -10,6 +10,7 @@
 #import "WebRequests.h"
 #import "User.h"
 #import "DataContainer.h"
+#import "Drink.h"
 
 @interface ViewController ()
 
@@ -56,4 +57,25 @@
 
     [WebRequests getUserData:1 withBlock:getUserBlock];
 }
+
+-(void)getDrink
+{
+void (^getDrinkBlock)(Boolean, id, NSError*)  =
+    ^(Boolean success,id result, NSError* error){
+        if(success)
+        {
+            NSLog(@"%@",[result class]);
+            //[MBProgressHUD hideHUDForView:self.view animated:YES];
+            NSDictionary* dc = result;
+            // NSLog(@"%@",result.description);
+            
+            //  for (NSDictionary* dc in result){
+            NSLog(@"%@", dc.description);
+        }
+        
+    };
+    NSMutableArray *array = [DataContainer getOrderedDrinks];
+    [WebRequests sendOrder:array withBlock:getDrinkBlock];
+}
+
 @end
