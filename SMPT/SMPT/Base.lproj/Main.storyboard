@@ -40,7 +40,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Idf-on-USN" kind="modal" id="eCN-Nk-VMB"/>
+                                    <segue destination="Idf-on-USN" kind="push" id="8Jv-0j-FFe"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aw1-sE-Jef">
@@ -62,7 +62,7 @@
             </objects>
             <point key="canvasLocation" x="685" y="-81"/>
         </scene>
-        <!--Notification View Controller-->
+        <!--Notification View Controller - Meldingen-->
         <scene sceneID="Vot-1u-Nxy">
             <objects>
                 <viewController id="Idf-on-USN" customClass="NotificationViewController" sceneMemberID="viewController">
@@ -84,6 +84,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Meldingen" id="BMz-EU-P2o"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s3i-wR-oDx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -111,11 +112,12 @@
                                     <action selector="btnOrder:" destination="rw9-1h-lij" eventType="touchUpInside" id="EiA-UV-gfO"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="299" translatesAutoresizingMaskIntoConstraints="NO" id="YpZ-Vz-deo">
-                                <rect key="frame" x="10" y="126" width="299" height="175"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="299" translatesAutoresizingMaskIntoConstraints="NO" id="YpZ-Vz-deo">
+                                <rect key="frame" x="10" y="119" width="299" height="182"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lxL-ip-m4H">
                                 <rect key="frame" x="10" y="318" width="290" height="21"/>
@@ -193,6 +195,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Drankenlijst" id="Cqq-S4-CNK">
+                        <barButtonItem key="backBarButtonItem" title="Home" id="cYW-Fs-VRA"/>
                         <barButtonItem key="rightBarButtonItem" title="Betaal" id="fmt-wX-kC7">
                             <connections>
                                 <segue destination="rw9-1h-lij" kind="push" id="lWY-2i-xz0"/>
