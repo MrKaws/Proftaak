@@ -12,7 +12,7 @@
 @property NSInteger id;
 @property NSString* first_name;
 @property NSString* last_name;
-@property NSInteger saldo;
+@property NSDecimal saldo;
 -(NSInteger) getId;
 
 @end
