@@ -178,13 +178,19 @@
                     <view key="view" contentMode="scaleToFill" id="1jj-ig-ndj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="iBeacon-icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="m8w-KT-nr4">
+                                <rect key="frame" x="22" y="135" width="278" height="251"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Kzo-cb-azc"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ySh-6s-TjD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1694" y="508"/>
+            <point key="canvasLocation" x="1698" y="512"/>
         </scene>
         <!--Drinks List View Controller - Drankenlijst-->
         <scene sceneID="3hu-oZ-zfl">
