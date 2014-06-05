@@ -35,6 +35,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.tvOrders setEditable:true];
     NSMutableArray *array = [DataContainer getOrderedDrinks];
     orders = array;
     NSString *temp = @"";
