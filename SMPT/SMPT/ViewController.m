@@ -50,7 +50,7 @@
                 NSLog(@"%@",u.first_name);
             [DataContainer setCurrentUser:u];
             NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-            [formatter setNumberStyle:	];
+            [formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
             [self.lbSaldo setText:[NSString stringWithFormat:@"Huidig saldo: %@",[formatter stringFromNumber: @(u.saldo)] ]];
                 
                 
