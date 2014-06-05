@@ -23,6 +23,12 @@ NSString * const sendOrder = BASE_URL @"sendorder.php";
 +(void) makeHTTPPostRequest:(NSDictionary*) params url:(NSString*) url withBlock:(void (^)(Boolean, id, NSError*))block{
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    AFJSONRequestSerializer *requestSerializer = [AFJSONRequestSerializer serializer];
+    
+    [requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    manager.requestSerializer = requestSerializer;
+  // [[manager requestSerializer]set ]
     //AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:  [NSURL URLWithString:url ]];  
   //manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
    // manager.requestSerializer = [AFJSONRequestSerializer serializer];
@@ -32,8 +38,11 @@ NSString * const sendOrder = BASE_URL @"sendorder.php";
         NSLog(@"%@",[responseObject class]);
        // NSLog(@"Request Successful, response '%@'", responseStr);
        // block(true,responseStr,nil);
+        NSLog(@"%@",operation.request);
+        NSLog(@"%@",[[NSString alloc] initWithData:operation.request.HTTPBody encoding:NSUTF8StringEncoding]);
         block(true, responseObject,nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@",operation.responseString);
         NSLog(@"%@",operation.responseObject);
         NSLog(@"Error: %@", error);
     }];
@@ -46,7 +55,7 @@ NSString * const sendOrder = BASE_URL @"sendorder.php";
     [WebRequests makeHTTPPostRequest:params url:NotificationString withBlock:block];
 }
 +(void) getUserData:(NSInteger) userId withBlock:	(void (^)(Boolean, id,NSError*)) block{
-    NSDictionary *params = @{@"id":[NSNumber numberWithInteger:userId]};
+    NSDictionary *params = @{@"uid":[@(userId)stringValue]};
                             /*[NSDictionary dictionaryWithObjectsAndKeys:
                              @"id", [[NSNumber alloc] initWithInteger:userId],
                              @"key", @"apikey",
@@ -55,14 +64,14 @@ NSString * const sendOrder = BASE_URL @"sendorder.php";
 }
 +(void) sendOrder:(NSMutableArray*) orderId withBlock:	(void (^)(Boolean, id,NSError*)) block{
     NSInteger userId = [[DataContainer getCurrentUser]getId ];
-
+    //userId = 1;
    // NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     //[params addEntriesFromDictionary:@{@"uid": [NSNumber numberWithInteger:userId]}];
     NSMutableArray* paramArray = [[NSMutableArray alloc]init];
     for(Drink* d in orderId){
         [paramArray addObject:[d dictionaryWithIDandAmount]];
     }
-    NSDictionary* params = @{@"uid":[NSNumber numberWithInteger:userId], @"drinks":paramArray};
+    NSDictionary* params = @{@"uid":[@(userId)stringValue], @"drinks":paramArray};
 
     [WebRequests makeHTTPPostRequest:params url:sendOrder withBlock:block];
 
