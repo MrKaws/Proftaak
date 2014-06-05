@@ -172,7 +172,7 @@
             </objects>
             <point key="canvasLocation" x="1703" y="-81"/>
         </scene>
-        <!--View Controller-->
+        <!--View Controller - iBeacon-->
         <scene sceneID="Ywx-un-JbU">
             <objects>
                 <viewController id="Epz-tg-5dk" sceneMemberID="viewController">
@@ -191,7 +191,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Kzo-cb-azc"/>
+                    <navigationItem key="navigationItem" title="iBeacon" id="Kzo-cb-azc"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ySh-6s-TjD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
