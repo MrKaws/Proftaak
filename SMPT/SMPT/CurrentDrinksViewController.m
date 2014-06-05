@@ -84,16 +84,18 @@
         existingDrinks = [[NSMutableArray alloc]init];
     }
     
-    //drankjes aantal fixen moet nog gebeuren
-// 
-//    NSInteger sameDrink = 0;
-//    for(Drink *d in existingDrinks){
-//        if(drink.name == d.name){
-//            sameDrink = drink.amount + d.amount;
-//            drink.amount = sameDrink;
-//        }
-//    }
-        [existingDrinks addObject:drink];
+    Boolean doNotAdd = false;
+    for(Drink *d in existingDrinks){
+        if(drink.name == d.name){
+            d.amount = d.amount+drink.amount;
+            doNotAdd= true;
+        }
+    }
+    if(!doNotAdd){
+        [existingDrinks addObject:drink];}
+    else{
+        doNotAdd = false;
+    }
 
     //NSMutableArray *saveDrink = [[NSMutableArray alloc]init];
     //[saveDrink addObject:dvc];
