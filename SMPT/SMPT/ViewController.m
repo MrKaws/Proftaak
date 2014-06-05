@@ -49,6 +49,9 @@
                 u.saldo = [[dc objectForKey:@"saldo"]integerValue];
                 NSLog(@"%@",u.first_name);
             [DataContainer setCurrentUser:u];
+            NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+            [formatter setNumberStyle:	];
+            [self.lbSaldo setText:[NSString stringWithFormat:@"Huidig saldo: %@",[formatter stringFromNumber: @(u.saldo)] ]];
                 
                 
             }
