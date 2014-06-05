@@ -88,6 +88,8 @@
     }else{
     ViewController *vc = [[ViewController alloc]init];
     [vc getDrink];
+
+
     }
 }
 

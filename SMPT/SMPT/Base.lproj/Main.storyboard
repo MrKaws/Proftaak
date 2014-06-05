@@ -113,7 +113,7 @@
                                 </state>
                                 <connections>
                                     <action selector="btnOrder:" destination="rw9-1h-lij" eventType="touchUpInside" id="EiA-UV-gfO"/>
-                                    <segue destination="Epz-tg-5dk" kind="push" id="WMX-yw-rhf"/>
+                                    <segue destination="Epz-tg-5dk" kind="push" identifier="orderDetails" id="WMX-yw-rhf"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lxL-ip-m4H">
@@ -157,7 +157,7 @@
             </objects>
             <point key="canvasLocation" x="1703" y="-81"/>
         </scene>
-        <!--View Controller-->
+        <!--View Controller - iBeacon-->
         <scene sceneID="Ywx-un-JbU">
             <objects>
                 <viewController id="Epz-tg-5dk" sceneMemberID="viewController">
@@ -170,7 +170,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Kzo-cb-azc"/>
+                    <navigationItem key="navigationItem" title="iBeacon" id="Kzo-cb-azc"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ySh-6s-TjD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
