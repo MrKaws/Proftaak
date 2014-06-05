@@ -16,5 +16,14 @@
 @property (strong, nonatomic) IBOutlet UITextField *tbAmount;
 - (IBAction)btnAddDrinks:(id)sender;
 @property UIAlertView *alert;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property UITextField* activeField;
+
+- (void)registerForKeyboardNotifications;
+- (void)textFieldDidBeginEditing:(UITextField *)textField;
+- (void)textFieldDidEndEditing:(UITextField *)textField;
+- (void)keyboardWillShow:(NSNotification*)aNotification;
+- (void)keyboardWillBeHidden:(NSNotification*)aNotification;
+
 
 @end
