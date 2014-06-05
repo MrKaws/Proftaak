@@ -20,6 +20,7 @@
 @synthesize drinksModal;
 @synthesize lblTotal;
 @synthesize tbAmount;
+@synthesize alert;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -53,16 +54,7 @@
     double totalprice = amount * drinksPrice;
     [lblTotal setText:[NSString stringWithFormat:@"%.2f", totalprice]];
     
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle: @"Bevestiging"
-                                                   message: @"uw bestelling is toegevoegd"
-                                                  delegate: self
-                                         cancelButtonTitle:@"Ok"
-                                         otherButtonTitles:nil,nil];
-    
-    
-    [alert show];
-    
-    Drink *drink = [[Drink alloc]init];
+      Drink *drink = [[Drink alloc]init];
     NSString* name = drinksModal[0];
     NSInteger drinksID = [drinksModal[2] integerValue];
     NSNumber *number = [NSNumber numberWithDouble:totalprice];
@@ -86,6 +78,19 @@
     [existingDrinks addObject:drink];
     [DataContainer setOrderedDrinks:existingDrinks];
    // [dvc.orderedDrinks addObject:dvc];
-    
+    alert = [[UIAlertView alloc]initWithTitle: @"Bevestiging"
+                                      message: @"uw bestelling is toegevoegd"
+                                     delegate: self
+                            cancelButtonTitle:nil
+                            otherButtonTitles:nil,nil];
+    [alert show];
+    [NSTimer scheduledTimerWithTimeInterval:0.7 target:self selector:@selector(closeAlert) userInfo:nil repeats:NO];
+    //[self dismissViewControllerAnimated:true completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
+
+-(void)closeAlert {
+    [alert dismissWithClickedButtonIndex:0 animated:YES];
+}
+
 @end

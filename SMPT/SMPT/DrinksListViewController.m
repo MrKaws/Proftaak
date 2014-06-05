@@ -41,6 +41,7 @@
     drinksID = @[@1,@2,@3,@4,@5,@6,@7,@8,@9];
     drinksName = @[@"Cola", @"Fanta", @"7 up", @"Ice Tea", @"Bier", @"Thee", @"Koffie",
                    @"Fristy", @"Whisky"];
+    NSNumber *doubleNumber = [NSNumber numberWithDouble:0.2f];
     drinksPrice = @[@2.50, @2.50, @2.50, @2.50, @3.50, @2.00, @1.50, @2.00, @4.00];
    // drinksPrice = @[@"2.50", @"2.50", @"2.50", @"2.50", @"3.50", @"2.00", @"1.50", @"3.25", @"2.00", @"4.00"];
     drinksName = [drinksName sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];

@@ -15,5 +15,6 @@
 @property (strong, nonatomic) NSArray *drinksModal;
 @property (strong, nonatomic) IBOutlet UITextField *tbAmount;
 - (IBAction)btnAddDrinks:(id)sender;
+@property UIAlertView *alert;
 
 @end
