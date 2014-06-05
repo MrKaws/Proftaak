@@ -77,19 +77,23 @@
 }
 
 - (IBAction)btnOrder:(id)sender {
-    if([orders count] == 0){
+    if ([orders count] > 0) {
+        ViewController *vc = [[ViewController alloc]init];
+        [vc getDrink];
+        ViewController *viewController = [[ViewController alloc] init];
+        ViewController *secondViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"BeaconView"];
+        [self presentModalViewController:secondViewController animated:YES];
+        
+    }
+    
+    else{
         noOrderAlert = [[UIAlertView alloc] initWithTitle:@"Melding"
-                                                        message:@"Er zijn nog geen drankjes toegevoegd"
-                                                       delegate:self
-                                              cancelButtonTitle:nil
-                                              otherButtonTitles:nil, nil];
+                                                  message:@"Er zijn nog geen drankjes toegevoegd"
+                                                 delegate:self
+                                        cancelButtonTitle:nil
+                                        otherButtonTitles:nil, nil];
         [noOrderAlert show];
-            [NSTimer scheduledTimerWithTimeInterval:0.7 target:self selector:@selector(closeAlert) userInfo:nil repeats:NO];
-    }else{
-    ViewController *vc = [[ViewController alloc]init];
-    [vc getDrink];
-
-
+        [NSTimer scheduledTimerWithTimeInterval:0.7 target:self selector:@selector(closeAlert) userInfo:nil repeats:NO];
     }
 }
 
