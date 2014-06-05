@@ -40,7 +40,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Idf-on-USN" kind="modal" id="eCN-Nk-VMB"/>
+                                    <segue destination="Idf-on-USN" kind="push" id="8Jv-0j-FFe"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aw1-sE-Jef">
@@ -62,7 +62,7 @@
             </objects>
             <point key="canvasLocation" x="685" y="-81"/>
         </scene>
-        <!--Notification View Controller-->
+        <!--Notification View Controller - Meldingen-->
         <scene sceneID="Vot-1u-Nxy">
             <objects>
                 <viewController id="Idf-on-USN" customClass="NotificationViewController" sceneMemberID="viewController">
@@ -88,6 +88,7 @@
                     <connections>
                         <outlet property="tvNotifications" destination="R81-jR-otx" id="boe-Dj-c80"/>
                     </connections>
+                    <navigationItem key="navigationItem" title="Meldingen" id="BMz-EU-P2o"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s3i-wR-oDx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -199,6 +200,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Drankenlijst" id="Cqq-S4-CNK">
+                        <barButtonItem key="backBarButtonItem" title="Home" id="cYW-Fs-VRA"/>
                         <barButtonItem key="rightBarButtonItem" title="Betaal" id="fmt-wX-kC7">
                             <connections>
                                 <segue destination="rw9-1h-lij" kind="push" id="lWY-2i-xz0"/>

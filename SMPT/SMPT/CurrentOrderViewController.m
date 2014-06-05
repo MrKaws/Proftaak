@@ -51,7 +51,7 @@
         Drink* d = (Drink*)[array objectAtIndex:i];
         double totalPrice = [d.totalPrice doubleValue];
        // NSLog(@"name %@ amount %i",d.name,d.amount);
-        temp = [NSString stringWithFormat:@"%@%@\t%@\t%@\n", temp, d.name, [formatter stringFromNumber: @(d.amount)],[formatter stringFromNumber: @(totalPrice)]];
+        temp = [NSString stringWithFormat:@"%@%@\t\t\t%i\t\t\t\t%@\n", temp, d.name, d.amount,[formatter stringFromNumber: @(totalPrice)]];
        // temp = [NSString stringWithFormat:@"%@", [array objectAtIndex:i]];
     }
     [self.tvOrders setText:temp];
