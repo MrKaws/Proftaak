@@ -71,6 +71,9 @@ NSString * const sendOrder = BASE_URL @"sendorder.php";
     for(Drink* d in orderId){
         [paramArray addObject:[d dictionaryWithIDandAmount]];
     }
+    //NSError* error = nil;
+    //NSData *jsonData2 = [NSJSONSerialization dataWithJSONObject:paramArray options:NSJSONWritingPrettyPrinted error:&error];
+    //NSString *jsonString = [[NSString alloc] initWithData:jsonData2 encoding:NSUTF8StringEncoding];
     NSDictionary* params = @{@"uid":[@(userId)stringValue], @"drinks":paramArray};
 
     [WebRequests makeHTTPPostRequest:params url:sendOrder withBlock:block];
