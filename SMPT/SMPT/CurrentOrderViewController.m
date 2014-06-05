@@ -20,6 +20,8 @@
 //@synthesize lblShowOrder;
 @synthesize lblItems;
 @synthesize lblTotalPrice;
+@synthesize orders;
+@synthesize noOrderAlert;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,6 +36,7 @@
 {
     [super viewDidLoad];
     NSMutableArray *array = [DataContainer getOrderedDrinks];
+    orders = array;
     NSString *temp = @"";
     NSString *items = @"";
     NSLog(@"array size %i",[array count]);
@@ -74,18 +77,46 @@
 }
 
 - (IBAction)btnOrder:(id)sender {
-    ViewController *vc = [[ViewController alloc]init];
-    [vc getDrink];
-}
-
-- (IBAction)btnRemoveOrder:(id)sender {
-    NSMutableArray *array = [DataContainer getOrderedDrinks];
-    [array removeAllObjects];
-    if([array count] == 0)
-    {
-        [self.tvOrders setText:@"Er zijn nog geen bestellingen"];
-        NSLog(@"array size: %i", [array count]);
+    if ([orders count] > 0) {
+        ViewController *vc = [[ViewController alloc]init];
+        [vc getDrink];
+        ViewController *viewController = [[ViewController alloc] init];
+        ViewController *secondViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"BeaconView"];
+        [self presentModalViewController:secondViewController animated:YES];
+        
+    }
+    
+    else{
+        noOrderAlert = [[UIAlertView alloc] initWithTitle:@"Melding"
+                                                  message:@"Er zijn nog geen drankjes toegevoegd"
+                                                 delegate:self
+                                        cancelButtonTitle:nil
+                                        otherButtonTitles:nil, nil];
+        [noOrderAlert show];
+        [NSTimer scheduledTimerWithTimeInterval:0.7 target:self selector:@selector(closeAlert) userInfo:nil repeats:NO];
     }
 }
 
+- (IBAction)btnRemoveOrder:(id)sender {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Melding"
+                                                    message:@"Alle drankjes verwijderen?"
+                                                   delegate:self
+                                          cancelButtonTitle:@"Nee"
+                                          otherButtonTitles:@"Ja", nil];
+    [alert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex != [alertView cancelButtonIndex]) {
+
+        //replace appname with any specific name you want
+        [orders removeAllObjects];
+        [self.tvOrders setText:@"Er zijn nog geen bestellingen"];
+        [self.lblTotalPrice setText:@""];
+    }
+}
+
+-(void)closeAlert {
+    [noOrderAlert dismissWithClickedButtonIndex:0 animated:YES];
+}
 @end

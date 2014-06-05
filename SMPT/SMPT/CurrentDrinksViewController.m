@@ -199,9 +199,21 @@
       //  NSLog(@"INITIALIZING DRINKS");
         existingDrinks = [[NSMutableArray alloc]init];
     }
+    
+    //drankjes aantal fixen moet nog gebeuren
+// 
+//    NSInteger sameDrink = 0;
+//    for(Drink *d in existingDrinks){
+//        if(drink.name == d.name){
+//            sameDrink = drink.amount + d.amount;
+//            drink.amount = sameDrink;
+//        }
+//    }
+        [existingDrinks addObject:drink];
+
     //NSMutableArray *saveDrink = [[NSMutableArray alloc]init];
     //[saveDrink addObject:dvc];
-    [existingDrinks addObject:drink];
+  //  [existingDrinks addObject:drink];
     [DataContainer setOrderedDrinks:existingDrinks];
    // [dvc.orderedDrinks addObject:dvc];
     alert = [[UIAlertView alloc]initWithTitle: @"Bevestiging"

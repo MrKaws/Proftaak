@@ -15,5 +15,6 @@
 - (IBAction)btnRemoveOrder:(id)sender;
 @property (strong, nonatomic) IBOutlet UILabel *lblTotalPrice;
 @property (strong, nonatomic) IBOutlet UILabel *lblItems;
-
+@property NSMutableArray *orders;
+@property UIAlertView *noOrderAlert;
 @end
