@@ -50,8 +50,7 @@ NSString * const sendOrder = BASE_URL @"sendorder.php";
     }
 +(void) getNotifications:(void (^)(Boolean, id, NSError*))block {
 
-    NSDictionary *params = @{@"key": @"apikey",
-                             @"lastid":	@"laatstbekendheid"};
+    NSDictionary *params = @{@"lastid":	@"laatstbekendheid"};
     [WebRequests makeHTTPPostRequest:params url:NotificationString withBlock:block];
 }
 +(void) getUserData:(NSInteger) userId withBlock:	(void (^)(Boolean, id,NSError*)) block{
