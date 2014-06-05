@@ -327,6 +327,7 @@
                     <connections>
                         <outlet property="lblDrinksPrice" destination="UKS-vr-8Dn" id="lrf-j8-Nxc"/>
                         <outlet property="lblTotal" destination="BzA-OC-Pcz" id="spK-ze-vC3"/>
+                        <outlet property="scrollView" destination="0m3-HO-x1O" id="s0n-oS-W6q"/>
                         <outlet property="tbAmount" destination="046-zu-2PD" id="Lav-yb-vxA"/>
                     </connections>
                 </viewController>
