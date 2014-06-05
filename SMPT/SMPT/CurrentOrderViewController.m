@@ -17,7 +17,7 @@
 @end
 
 @implementation CurrentOrderViewController
-@synthesize lblShowOrder;
+//@synthesize lblShowOrder;
 @synthesize lblItems;
 @synthesize lblTotalPrice;
 
@@ -39,7 +39,7 @@
     NSLog(@"array size %i",[array count]);
     if([array count] == 0){
         temp = @"Er zijn nog geen bestellingen";
-        [lblShowOrder setText:temp];
+        [self.tvOrders setText:temp];
     }
     items = [NSString stringWithFormat:@"%@\t\t\t%@\t\t\t%@", @"Naam", @"Aantal", @"Bedrag"];
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
@@ -54,7 +54,7 @@
         temp = [NSString stringWithFormat:@"%@%@\t%@\t%@\n", temp, d.name, [formatter stringFromNumber: @(d.amount)],[formatter stringFromNumber: @(totalPrice)]];
        // temp = [NSString stringWithFormat:@"%@", [array objectAtIndex:i]];
     }
-    [lblShowOrder setText:temp];
+    [self.tvOrders setText:temp];
     [lblItems setText:items];
     double value = 0;
     for(Drink *d in array){
@@ -62,6 +62,8 @@
     }
     
     [lblTotalPrice setText:[NSString stringWithFormat:@"%@\t\t\t\t\t\t\t%@", @"Totaal: ", [formatter stringFromNumber:@(value)]]];
+    [lblTotalPrice setNumberOfLines:0];
+    [lblTotalPrice sizeToFit];
     
 }
 
@@ -81,7 +83,7 @@
     [array removeAllObjects];
     if([array count] == 0)
     {
-        [lblShowOrder setText:@"Er zijn nog geen bestellingen"];
+        [self.tvOrders setText:@"Er zijn nog geen bestellingen"];
         NSLog(@"array size: %i", [array count]);
     }
 }

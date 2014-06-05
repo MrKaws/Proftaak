@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface CurrentOrderViewController : UIViewController
-@property (strong, nonatomic) IBOutlet UILabel *lblShowOrder;
+//@property (strong, nonatomic) IBOutlet UILabel *lblShowOrder;
 - (IBAction)btnOrder:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextView *tvOrders;
 - (IBAction)btnRemoveOrder:(id)sender;
 @property (strong, nonatomic) IBOutlet UILabel *lblTotalPrice;
 @property (strong, nonatomic) IBOutlet UILabel *lblItems;

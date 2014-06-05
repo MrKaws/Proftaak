@@ -30,7 +30,7 @@
 }*/
 -(NSString*)dictionaryWithIDandAmount
 {
-    return [NSString stringWithFormat:@"{id:%i,amount:%i}", self.id, self.amount];}
+    return [NSString stringWithFormat:@"%i:%i", self.id, self.amount];}
 
 /*-(void)setName:(NSString *)name{
     name = name;
