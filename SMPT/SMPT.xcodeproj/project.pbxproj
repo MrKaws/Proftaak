@@ -46,6 +46,9 @@
 		BDB71B511936658D004A3D1B /* DrinksListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB71B501936658D004A3D1B /* DrinksListViewController.m */; };
 		BDB71B5419367063004A3D1B /* TableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB71B5319367063004A3D1B /* TableCell.m */; };
 		BDCFAE2B1937621500AACED5 /* CurrentDrinksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDCFAE2A1937621500AACED5 /* CurrentDrinksViewController.m */; };
+		F5148A87194085CE00C22891 /* iBeacon-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F5148A86194085CE00C22891 /* iBeacon-icon.png */; };
+		F5148A8A1940877700C22891 /* JEHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5148A891940877700C22891 /* JEHViewController.m */; };
+		F5148A8C194087C600C22891 /* JEHRegionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F5148A8B194087C600C22891 /* JEHRegionInfo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +137,11 @@
 		BDB71B5319367063004A3D1B /* TableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableCell.m; sourceTree = "<group>"; };
 		BDCFAE291937621500AACED5 /* CurrentDrinksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentDrinksViewController.h; sourceTree = "<group>"; };
 		BDCFAE2A1937621500AACED5 /* CurrentDrinksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentDrinksViewController.m; sourceTree = "<group>"; };
+		F5148A86194085CE00C22891 /* iBeacon-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iBeacon-icon.png"; sourceTree = "<group>"; };
+		F5148A881940876F00C22891 /* JEHViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JEHViewController.h; sourceTree = "<group>"; };
+		F5148A891940877700C22891 /* JEHViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JEHViewController.m; sourceTree = "<group>"; };
+		F5148A8B194087C600C22891 /* JEHRegionInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JEHRegionInfo.m; sourceTree = "<group>"; };
+		F5148A8D194087CD00C22891 /* JEHRegionInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JEHRegionInfo.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -283,10 +291,14 @@
 				BD07B365193629CB004EBABA /* CurrentOrderViewController.h */,
 				BD07B366193629CB004EBABA /* CurrentOrderViewController.m */,
 				BD07B34219361190004EBABA /* ViewController.h */,
+				F5148A881940876F00C22891 /* JEHViewController.h */,
+				F5148A891940877700C22891 /* JEHViewController.m */,
 				BD07B34319361190004EBABA /* ViewController.m */,
 				BD07B34519361190004EBABA /* Images.xcassets */,
 				BD07B33419361190004EBABA /* Supporting Files */,
 				30E85DBC193B67F9005A2951 /* DataContainer.h */,
+				F5148A8B194087C600C22891 /* JEHRegionInfo.m */,
+				F5148A8D194087CD00C22891 /* JEHRegionInfo.h */,
 				30E85DBD193B67F9005A2951 /* DataContainer.m */,
 			);
 			path = SMPT;
@@ -298,6 +310,7 @@
 				BD07B33519361190004EBABA /* SMPT-Info.plist */,
 				BD07B33619361190004EBABA /* InfoPlist.strings */,
 				BD07B33919361190004EBABA /* main.m */,
+				F5148A86194085CE00C22891 /* iBeacon-icon.png */,
 				BD07B33B19361190004EBABA /* SMPT-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -399,6 +412,7 @@
 			files = (
 				BD07B34619361190004EBABA /* Images.xcassets in Resources */,
 				BD07B33819361190004EBABA /* InfoPlist.strings in Resources */,
+				F5148A87194085CE00C22891 /* iBeacon-icon.png in Resources */,
 				BD07B34119361190004EBABA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -433,6 +447,7 @@
 				30C284FE193785B800E3363D /* NotificationItem.m in Sources */,
 				30C284DC19377A8700E3363D /* AFURLResponseSerialization.m in Sources */,
 				30C284F319377A9B00E3363D /* UIButton+AFNetworking.m in Sources */,
+				F5148A8C194087C600C22891 /* JEHRegionInfo.m in Sources */,
 				BD07B34419361190004EBABA /* ViewController.m in Sources */,
 				30C284F119377A9B00E3363D /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				30C284DB19377A8700E3363D /* AFURLRequestSerialization.m in Sources */,
@@ -440,6 +455,7 @@
 				30C284F019377A9B00E3363D /* AFNetworkActivityIndicatorManager.m in Sources */,
 				30C284D919377A8700E3363D /* AFSecurityPolicy.m in Sources */,
 				30C284D519377A8700E3363D /* AFHTTPRequestOperation.m in Sources */,
+				F5148A8A1940877700C22891 /* JEHViewController.m in Sources */,
 				30C284DD19377A8700E3363D /* AFURLSessionManager.m in Sources */,
 				BDB71B511936658D004A3D1B /* DrinksListViewController.m in Sources */,
 				BD07B33E19361190004EBABA /* AppDelegate.m in Sources */,
