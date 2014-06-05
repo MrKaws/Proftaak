@@ -42,11 +42,16 @@
         [lblShowOrder setText:temp];
     }
     items = [NSString stringWithFormat:@"%@\t\t\t%@\t\t\t%@", @"Naam", @"Aantal", @"Bedrag"];
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+    [formatter setCurrencyCode:@"EUR"];
+    [formatter setLocale:[[NSLocale alloc]initWithLocaleIdentifier:@"nl_NL" ]];
+   
     for(int i = 0; i < [array count]; i ++){
         Drink* d = (Drink*)[array objectAtIndex:i];
         double totalPrice = [d.totalPrice doubleValue];
        // NSLog(@"name %@ amount %i",d.name,d.amount);
-        temp = [NSString stringWithFormat:@"%@%@\t\t\t%i\t\t\t\t\t%.2f\n", temp, d.name, d.amount,totalPrice];
+        temp = [NSString stringWithFormat:@"%@%@\t%@\t%@\n", temp, d.name, [formatter stringFromNumber: @(d.amount)],[formatter stringFromNumber: @(totalPrice)]];
        // temp = [NSString stringWithFormat:@"%@", [array objectAtIndex:i]];
     }
     [lblShowOrder setText:temp];
@@ -55,7 +60,8 @@
     for(Drink *d in array){
         value =  value + [d.totalPrice doubleValue];
     }
-    [lblTotalPrice setText:[NSString stringWithFormat:@"%@\t\t\t\t\t\t\t%.2f", @"Totaal: ", value]];
+    
+    [lblTotalPrice setText:[NSString stringWithFormat:@"%@\t\t\t\t\t\t\t%@", @"Totaal: ", [formatter stringFromNumber:@(value)]]];
     
 }
 

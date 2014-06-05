@@ -34,10 +34,15 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    [lblDrinksPrice setText: [NSString stringWithFormat:@"%@", drinksModal[1]]];
-    self.navigationItem.title = drinksModal[0];
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+    [formatter setCurrencyCode:@"EUR"];
+    [formatter setLocale:[[NSLocale alloc]initWithLocaleIdentifier:@"nl_NL" ]];
+   // cell.lblDrinksPrice.text=[formatter stringFromNumber: drinksPrice[row]];
+    [lblDrinksPrice setText: [NSString stringWithFormat:@"%@", [formatter stringFromNumber:@([drinksModal[1]doubleValue])]]];
+		    self.navigationItem.title = drinksModal[0];
     [tbAmount setText:[NSString stringWithFormat:@"%d", 1]];
-    [lblTotal setText:[NSString stringWithFormat:@"%@", drinksModal[1]]];
+    [lblTotal setText:[NSString stringWithFormat:@"%@", [formatter stringFromNumber:@([drinksModal[1] doubleValue])]]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,7 +56,12 @@
     int amount = [[tbAmount text] intValue];
     double drinksPrice = [drinksModal[1] doubleValue];
     double totalprice = amount * drinksPrice;
-    [lblTotal setText:[NSString stringWithFormat:@"%.2f", totalprice]];
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+    [formatter setCurrencyCode:@"EUR"];
+    [formatter setLocale:[[NSLocale alloc]initWithLocaleIdentifier:@"nl_NL" ]];
+    [lblTotal  setText:[formatter stringFromNumber: @(totalprice)]];
+    //[lblTotal setText:[NSString stringWithFormat:@"%.2f", totalprice]];
     
     UIAlertView *alert = [[UIAlertView alloc]initWithTitle: @"Bevestiging"
                                                    message: @"uw bestelling is toegevoegd"

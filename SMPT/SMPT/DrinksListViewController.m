@@ -76,7 +76,12 @@
     // Configure the cell...
     int row = [indexPath row];
     cell.lblDrinksName.text = drinksName[row];
-    cell.lblDrinksPrice.text = [NSString stringWithFormat:@"%@", drinksPrice[row]];
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+    [formatter setCurrencyCode:@"EUR"];
+    [formatter setLocale:[[NSLocale alloc]initWithLocaleIdentifier:@"nl_NL" ]];
+    cell.lblDrinksPrice.text=[formatter stringFromNumber: drinksPrice[row]];
+   // cell.lblDrinksPrice.text = [NSString stringWithFormat:@"%@", drinksPrice[row]];
     return cell;
 }
 
