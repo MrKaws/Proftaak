@@ -11,7 +11,7 @@
 @interface NotificationItem : NSObject
 
 @property NSString* title ;
-@property NSInteger type;
+@property NSInteger notificationID;
 @property NSString* content;
 
 @end

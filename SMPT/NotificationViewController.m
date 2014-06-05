@@ -32,26 +32,20 @@
     ^(Boolean success,id result, NSError* error){
         if(success)
         {
-            NSLog(@"%@",[result class]);
-            //[MBProgressHUD hideHUDForView:self.view animated:YES];
-           // NSDictionary* results = [result valueLists];
-         //   NSArray* results = ([result valueListAttributes]);
-            NSMutableArray* results = [[NSMutableArray alloc]init];
-            NSLog(@"%@",[[result objectForKey:@"1"] class]);
-            [results addObject:[result objectForKey:@"1"]];
-             [results addObject:[result objectForKey:@"2"]];
+            NSMutableString* notificationString = [[NSMutableString alloc]init];
+       
             NSMutableArray* notifications = [[NSMutableArray alloc]init];
-            for (NSDictionary* dc in results){
+            for (NSDictionary* dc in result){
                 NSLog(@"%@", dc.description);
                 NotificationItem* n = [NotificationItem alloc];
-                n.type = [[dc objectForKey:@"type"]integerValue];
+                n.notificationID = [[dc objectForKey:@"type"]integerValue];
                 n.title = [dc objectForKey:@"titel"];
                 n.content = [dc objectForKey:@"content"];
                 NSLog(@"%@",n.content);
                 [notifications  addObject:n];
-                
-                
-            }
+                [notificationString appendString:[NSString stringWithFormat:@"%@\n",n.content]];
+                 }
+            [self.tvNotifications setText:notificationString];
             
             
         }
