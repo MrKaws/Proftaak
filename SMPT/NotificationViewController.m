@@ -28,6 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.tvNotifications setEditable:false];
     void (^notificationBlock)(Boolean, id, NSError*)  =
     ^(Boolean success,id result, NSError* error){
         if(success)
@@ -43,7 +44,7 @@
                 n.content = [dc objectForKey:@"content"];
                 NSLog(@"%@",n.content);
                 [notifications  addObject:n];
-                [notificationString appendString:[NSString stringWithFormat:@"- %@\n\n",n.content]];
+                [notificationString appendString:[NSString stringWithFormat:@"\u2022 %@:\n  %@\n\n",n.title,n.content]];
                  }
             [self.tvNotifications setText:notificationString];
             
