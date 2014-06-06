@@ -21,6 +21,8 @@
 @synthesize lblTotal;
 @synthesize tbAmount;
 @synthesize alert;
+@synthesize scrollView;
+@synthesize activeField;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,6 +37,18 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    [self registerForKeyboardNotifications];
+
+    self.scrollView.scrollEnabled = YES;
+    
+        UITapGestureRecognizer *tapScroll = [[UITapGestureRecognizer alloc]initWithTarget:self     action:@selector(tapped)];
+        tapScroll.cancelsTouchesInView = NO;
+        [scrollView addGestureRecognizer:tapScroll];
+    
+    [self.view addGestureRecognizer:tapScroll];
+    
+    
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     [formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
     [formatter setCurrencyCode:@"EUR"];
@@ -44,8 +58,112 @@
 		    self.navigationItem.title = drinksModal[0];
     [tbAmount setText:[NSString stringWithFormat:@"%d", 1]];
     [lblTotal setText:[NSString stringWithFormat:@"%@", [formatter stringFromNumber:@([drinksModal[1] doubleValue])]]];
+    
+    
+}
+- (void) tapped
+{
+    NSLog(@"OMG I GOT TAPPED");	
+    [self.view endEditing:YES];
 }
 
+// Call this method somewhere in your view controller setup code.
+- (void)registerForKeyboardNotifications
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+     
+                                             selector:@selector(keyboardWasShown:)
+     
+                                                 name:UIKeyboardDidShowNotification object:nil];
+    
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+     
+                                             selector:@selector(keyboardWillBeHidden:)
+     
+                                                 name:UIKeyboardWillHideNotification object:nil];
+    
+}
+
+
+// Called when the UIKeyboardDidShowNotification is sent.
+/*- (void)keyboardWillBeShown:(NSNotification*)aNotification
+{NSDictionary* info = [aNotification userInfo];
+    CGRect kbRect = [self.view.window convertRect:[[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue] fromView:self.scrollView];
+    CGSize kbSize = kbRect.size;
+    
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
+    self.scrollView.contentInset = contentInsets;
+ self.scrollView.scrollIndicatorInsets = contentInsets;	}*/
+- (void)keyboardWasShown:(NSNotification*)aNotification
+
+{
+    
+    NSDictionary* info = [aNotification userInfo];
+    
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
+    
+    scrollView.contentInset = contentInsets;
+    
+    scrollView.scrollIndicatorInsets = contentInsets;
+    /*
+    
+    
+    // If active text field is hidden by keyboard, scroll it so it's visible
+    
+    // Your app might not need or want this behavior.
+    
+  //   CGRect aRect = self.view.frame;
+    CGRect aRect = scrollView.frame;
+     aRect.size.height -= kbSize.height;
+     CGPoint origin = activeField.frame.origin;
+    origin.y += self.activeField.frame.size.height;
+    
+    origin.y -= scrollView.contentOffset.y;
+    // self.activeField.frame.origin.y += self.activeField.frame.size.height;
+     if (!CGRectContainsPoint(aRect, origin) ) {
+     CGPoint scrollPoint = CGPointMake(0.0, activeField.frame.origin.y-(aRect.size.height));
+     [scrollView setContentOffset:scrollPoint animated:YES];
+     }*/
+    
+}
+
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+
+{
+    
+    activeField = textField;
+    
+}
+
+
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+
+{
+    
+    activeField = nil;
+    
+}
+
+// Called when the UIKeyboardWillHideNotification is sent
+
+- (void)keyboardWillBeHidden:(NSNotification*)aNotification
+
+{
+    NSLog(@"REMOVING KEYBOARD");
+    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
+    
+    scrollView.contentInset = contentInsets;
+    
+    scrollView.scrollIndicatorInsets = contentInsets;
+    
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -84,16 +202,18 @@
         existingDrinks = [[NSMutableArray alloc]init];
     }
     
-    //drankjes aantal fixen moet nog gebeuren
-// 
-//    NSInteger sameDrink = 0;
-//    for(Drink *d in existingDrinks){
-//        if(drink.name == d.name){
-//            sameDrink = drink.amount + d.amount;
-//            drink.amount = sameDrink;
-//        }
-//    }
-        [existingDrinks addObject:drink];
+    Boolean doNotAdd = false;
+    for(Drink *d in existingDrinks){
+        if(drink.name == d.name){
+            d.amount = d.amount+drink.amount;
+            doNotAdd= true;
+        }
+    }
+    if(!doNotAdd){
+        [existingDrinks addObject:drink];}
+    else{
+        doNotAdd = false;
+    }
 
     //NSMutableArray *saveDrink = [[NSMutableArray alloc]init];
     //[saveDrink addObject:dvc];
