@@ -46,6 +46,8 @@
         tapScroll.cancelsTouchesInView = NO;
         [scrollView addGestureRecognizer:tapScroll];
     
+    [self.view addGestureRecognizer:tapScroll];
+    
     
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     [formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
@@ -61,7 +63,7 @@
 }
 - (void) tapped
 {
-    NSLog(@"OMG I GOT TAPPED");
+    NSLog(@"OMG I GOT TAPPED");	
     [self.view endEditing:YES];
 }
 
