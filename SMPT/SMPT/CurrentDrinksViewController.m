@@ -206,6 +206,8 @@
     for(Drink *d in existingDrinks){
         if(drink.name == d.name){
             d.amount = d.amount+drink.amount;
+            double sumTotalPrice = d.amount * drinksPrice;
+            d.totalPrice = [NSNumber numberWithDouble:sumTotalPrice];
             doNotAdd= true;
         }
     }
