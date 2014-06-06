@@ -43,7 +43,7 @@
                 n.content = [dc objectForKey:@"content"];
                 NSLog(@"%@",n.content);
                 [notifications  addObject:n];
-                [notificationString appendString:[NSString stringWithFormat:@"%@\n",n.content]];
+                [notificationString appendString:[NSString stringWithFormat:@"- %@\n\n",n.content]];
                  }
             [self.tvNotifications setText:notificationString];
             
