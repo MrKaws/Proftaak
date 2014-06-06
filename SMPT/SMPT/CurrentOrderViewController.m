@@ -35,7 +35,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.tvOrders setEditable:true];
+    [self.tvOrders setEditable:false];
     NSMutableArray *array = [DataContainer getOrderedDrinks];
     orders = array;
     NSString *temp = @"";
@@ -68,6 +68,7 @@
     [lblTotalPrice setText:[NSString stringWithFormat:@"%@\t\t\t\t\t\t\t%@", @"Totaal: ", [formatter stringFromNumber:@(value)]]];
     [lblTotalPrice setNumberOfLines:0];
     [lblTotalPrice sizeToFit];
+    //[self.tvOrders setEditable:false];
     
 }
 
