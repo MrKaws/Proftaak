@@ -13,6 +13,17 @@
 //-(NSString*)getName{
 //    return self.name;
 //}
+-(id)initWithName:(NSString *)name categoryID:(NSInteger)catId andID:(NSInteger)id{
+    self = [super init] ; // or another one ; here you should use the designated init. of the parent class
+    
+    if (self){
+        self.categoryID = catId;
+        self.name = name;
+        self.id = id;
+        self.price =@2.00;
+    }
+    
+    return self;}
 
 -(NSInteger)getAmount{
     return self.amount;

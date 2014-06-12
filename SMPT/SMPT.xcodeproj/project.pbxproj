@@ -236,6 +236,10 @@
 		30C284FB193785A600E3363D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				BD02F829193F497600593E92 /* Drink.h */,
+				BD02F82A193F497600593E92 /* Drink.m */,
+				BD1E93381949A85B00750245 /* DrinksCategory.h */,
+				BD1E93391949A85B00750245 /* DrinksCategory.m */,
 				30C284FC193785B800E3363D /* NotificationItem.h */,
 				30C284FD193785B800E3363D /* NotificationItem.m */,
 				30E304BA19387E2F0072EAE4 /* User.h */,
@@ -283,10 +287,6 @@
 				30C284C019372A8100E3363D /* Networking */,
 				30C284BD19372A0B00E3363D /* NotificationViewController.h */,
 				30C284BE19372A0B00E3363D /* NotificationViewController.m */,
-				BD02F829193F497600593E92 /* Drink.h */,
-				BD02F82A193F497600593E92 /* Drink.m */,
-				BD1E93381949A85B00750245 /* DrinksCategory.h */,
-				BD1E93391949A85B00750245 /* DrinksCategory.m */,
 				BD07B33C19361190004EBABA /* AppDelegate.h */,
 				BD07B33D19361190004EBABA /* AppDelegate.m */,
 				BD07B33F19361190004EBABA /* Main.storyboard */,

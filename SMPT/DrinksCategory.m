@@ -10,4 +10,13 @@
 
 @implementation DrinksCategory
 
+-(id)initWithName:(NSString *)name andID:(NSInteger)id{
+    self = [super init] ; // or another one ; here you should use the designated init. of the parent class
+    
+    if (self){
+        self.categoryID = id;
+        self.categoryName = name;
+    }
+    
+    return self;}
 @end
