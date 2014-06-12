@@ -11,4 +11,7 @@
 @interface DrinksCategory : NSObject
 @property NSInteger categoryID;
 @property NSString *categoryName;
+
+-(id)initWithName:(NSString*)name andID:(NSInteger) id;
+
 @end

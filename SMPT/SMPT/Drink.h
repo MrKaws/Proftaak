@@ -13,7 +13,10 @@
 @property NSString* name;
 @property  NSInteger id;
 @property  NSInteger amount;
+@property NSNumber* price;
 @property NSNumber *totalPrice;
+@property NSInteger categoryID;
+-(id)initWithName:(NSString *)name categoryID:(NSInteger)id andID:(NSInteger)id;
 //-(NSDictionary*)dictionaryWithIDandAmount;
 -(NSString*)dictionaryWithIDandAmount;
 /*-(NSString*)getName;
