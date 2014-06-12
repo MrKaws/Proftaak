@@ -216,13 +216,13 @@
         <scene sceneID="3hu-oZ-zfl">
             <objects>
                 <tableViewController storyboardIdentifier="DrinksListController" id="QXM-Lo-yQe" customClass="DrinksListViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="lsM-pL-GoI">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="lsM-pL-GoI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TableCell" id="pDU-GL-lCn" customClass="TableCell">
-                                <rect key="frame" x="0.0" y="55" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pDU-GL-lCn" id="9VN-og-8sZ">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -261,7 +261,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Drankenlijst" id="Cqq-S4-CNK">
                         <barButtonItem key="backBarButtonItem" title="Home" id="cYW-Fs-VRA"/>
-                        <barButtonItem key="rightBarButtonItem" title="Betaal" id="fmt-wX-kC7">
+                        <barButtonItem key="rightBarButtonItem" title="Overzicht" id="fmt-wX-kC7">
                             <color key="tintColor" red="0.9215686917" green="0.2078431547" blue="0.14901961389999999" alpha="1" colorSpace="deviceRGB"/>
                             <connections>
                                 <segue destination="rw9-1h-lij" kind="push" id="lWY-2i-xz0"/>
@@ -320,14 +320,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="046-zu-2PD">
-                                <rect key="frame" x="196" y="313" width="68" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.28235294119999998" green="0.28235294119999998" blue="0.28627450980000002" alpha="1" colorSpace="deviceRGB"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pFn-UM-BLY">
                                 <rect key="frame" x="124" y="423" width="72" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -344,14 +336,45 @@
                                 <rect key="frame" x="52" y="87" width="217" height="194"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DEC-By-BEp">
+                                <rect key="frame" x="246" y="313" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <state key="normal" title="+">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnPlusOne:" destination="vMN-BN-Otx" eventType="touchUpInside" id="Uie-YP-mMS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MTa-U3-PMt">
+                                <rect key="frame" x="158" y="313" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="37"/>
+                                <state key="normal" title="-">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnMinusOne:" destination="vMN-BN-Otx" eventType="touchUpInside" id="mGf-Lc-BlF"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wvg-Oc-48T">
+                                <rect key="frame" x="196" y="322" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.28235294119999998" green="0.28235294119999998" blue="0.28627450980000002" alpha="1" colorSpace="deviceRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Drankje" id="giq-kZ-gI7"/>
                     <connections>
+                        <outlet property="lblDrinksAmount" destination="wvg-Oc-48T" id="Ggg-3F-ysF"/>
                         <outlet property="lblDrinksPrice" destination="UKS-vr-8Dn" id="lrf-j8-Nxc"/>
                         <outlet property="lblTotal" destination="BzA-OC-Pcz" id="spK-ze-vC3"/>
-                        <outlet property="tbAmount" destination="046-zu-2PD" id="Lav-yb-vxA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ymg-Ce-7wu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -388,6 +411,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="D9X-vB-yY5"/>
+        <segue reference="rQW-4N-6YQ"/>
     </inferredMetricsTieBreakers>
 </document>
