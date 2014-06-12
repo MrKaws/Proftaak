@@ -52,7 +52,10 @@
     self.categories=@[[[DrinksCategory alloc] initWithName:@"Frisdrank" andID:2],[[DrinksCategory alloc] initWithName:@"Bier" andID:1], [[DrinksCategory alloc] initWithName:@"Alcohol" andID:0],[[DrinksCategory alloc] initWithName:@"Speciaal" andID:3]];
    // drinksPrice = @[@"2.50", @"2.50", @"2.50", @"2.50", @"3.50", @"2.00", @"1.50", @"3.25", @"2.00", @"4.00"];
     //drinksName = [drinksName sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
-    self.drinks = [self.drinks sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+    NSSortDescriptor* sortDescriptor;
+    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    
+    self.drinks = [self.drinks sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
 }
 
 - (void)didReceiveMemoryWarning
