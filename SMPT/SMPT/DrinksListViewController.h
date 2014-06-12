@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Drink.h"
 
 @interface DrinksListViewController : UITableViewController
 @property NSArray *drinksID;
@@ -14,4 +15,7 @@
 @property NSArray *drinksPrice;
 @property NSNumber *totalPrice;
 @property NSInteger drinksAmount;
+@property NSArray* categories;
+@property NSArray* drinks;
+-(Drink*) getDrinkFromTable:(NSIndexPath *)indexPath;
 @end

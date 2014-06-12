@@ -19,10 +19,10 @@
 @synthesize lblDrinksPrice;
 @synthesize drinksModal;
 @synthesize lblTotal;
-@synthesize tbAmount;
 @synthesize alert;
 @synthesize scrollView;
 @synthesize activeField;
+@synthesize lblDrinksAmount;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -37,7 +37,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
+    [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:72.0/255.0 green:72.0/255.0 blue:73.0/255.0 alpha:1.0]];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:72.0/255.0 green:72.0/255.0 blue:73.0/255.0 alpha:1.0]];
+   [self.navigationController.navigationBar setTranslucent:NO];
+    self.view.backgroundColor = [UIColor colorWithRed:72.0/255.0 green:72.0/255.0 blue:73.0/255.0 alpha:1.0];
+    self.view.tintColor =[UIColor colorWithRed:72.0/255.0 green:72.0/255.0 blue:73.0/255.0 alpha:1.0];
     [self registerForKeyboardNotifications];
 
     self.scrollView.scrollEnabled = YES;
@@ -48,7 +52,6 @@
     
     [self.view addGestureRecognizer:tapScroll];
     
-    
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     [formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
     [formatter setCurrencyCode:@"EUR"];
@@ -56,7 +59,7 @@
    // cell.lblDrinksPrice.text=[formatter stringFromNumber: drinksPrice[row]];
     [lblDrinksPrice setText: [NSString stringWithFormat:@"%@", [formatter stringFromNumber:@([drinksModal[1]doubleValue])]]];
 		    self.navigationItem.title = drinksModal[0];
-    [tbAmount setText:[NSString stringWithFormat:@"%d", 1]];
+    [lblDrinksAmount setText:[NSString stringWithFormat:@"%d",1]];
     [lblTotal setText:[NSString stringWithFormat:@"%@", [formatter stringFromNumber:@([drinksModal[1] doubleValue])]]];
     
     
@@ -68,6 +71,23 @@
 }
 
 // Call this method somewhere in your view controller setup code.
+- (IBAction)btnPlusOne:(id)sender {
+    int currentValue = [lblDrinksAmount.text intValue];
+    int newValue = currentValue + 1;
+    [lblDrinksAmount setText:[NSString stringWithFormat:@"%d", newValue]];
+}
+
+- (IBAction)btnMinusOne:(id)sender {
+    int currentValue = [lblDrinksAmount.text intValue];
+    int newValue = currentValue - 1;
+   
+    if(currentValue < 1){
+        [lblDrinksAmount setText:[NSString stringWithFormat:@"%d", 0]];
+    }else{
+        [lblDrinksAmount setText:[NSString stringWithFormat:@"%d", newValue]];
+    }
+}
+
 - (void)registerForKeyboardNotifications
 {
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -171,8 +191,8 @@
 }
 
 - (IBAction)btnAddDrinks:(id)sender {
-    NSLog(@"%@",[tbAmount text]);
-    int amount = [[tbAmount text] intValue];
+    NSLog(@"%@",[lblDrinksAmount text]);
+    int amount = [[lblDrinksAmount text] intValue];
     double drinksPrice = [drinksModal[1] doubleValue];
     double totalprice = amount * drinksPrice;
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
@@ -206,6 +226,8 @@
     for(Drink *d in existingDrinks){
         if(drink.name == d.name){
             d.amount = d.amount+drink.amount;
+            double sumTotalPrice = d.amount * drinksPrice;
+            d.totalPrice = [NSNumber numberWithDouble:sumTotalPrice];
             doNotAdd= true;
         }
     }

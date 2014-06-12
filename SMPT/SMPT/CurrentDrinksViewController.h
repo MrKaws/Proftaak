@@ -13,11 +13,13 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblDrinksPrice;
 @property (strong, nonatomic) IBOutlet UILabel *lblTotal;
 @property (strong, nonatomic) NSArray *drinksModal;
-@property (strong, nonatomic) IBOutlet UITextField *tbAmount;
 - (IBAction)btnAddDrinks:(id)sender;
 @property UIAlertView *alert;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property UITextField* activeField;
+@property (strong, nonatomic) IBOutlet UILabel *lblDrinksAmount;
+- (IBAction)btnPlusOne:(id)sender;
+- (IBAction)btnMinusOne:(id)sender;
 
 - (void)registerForKeyboardNotifications;
 - (void)textFieldDidBeginEditing:(UITextField *)textField;

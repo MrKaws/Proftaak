@@ -28,6 +28,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:72.0/255.0 green:72.0/255.0 blue:73.0/255.0 alpha:1.0]];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:72.0/255.0 green:72.0/255.0 blue:73.0/255.0 alpha:1.0]];
+[self.navigationController.navigationBar setTranslucent:NO];
+    self.view.backgroundColor = [UIColor colorWithRed:72.0/255.0 green:72.0/255.0 blue:73.0/255.0 alpha:1.0];
+    self.view.tintColor =[UIColor colorWithRed:72.0/255.0 green:72.0/255.0 blue:73.0/255.0 alpha:1.0];
+     //   self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:72 green:72 blue:73 alpha:1.0];
+    [self.tvNotifications setEditable:false];
     void (^notificationBlock)(Boolean, id, NSError*)  =
     ^(Boolean success,id result, NSError* error){
         if(success)
@@ -43,7 +50,7 @@
                 n.content = [dc objectForKey:@"content"];
                 NSLog(@"%@",n.content);
                 [notifications  addObject:n];
-                [notificationString appendString:[NSString stringWithFormat:@"- %@\n\n",n.content]];
+                [notificationString appendString:[NSString stringWithFormat:@"\u2022 %@:\n  %@\n\n",n.title,n.content]];
                  }
             [self.tvNotifications setText:notificationString];
             
