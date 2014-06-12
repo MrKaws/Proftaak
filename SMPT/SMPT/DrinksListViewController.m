@@ -9,6 +9,7 @@
 #import "DrinksListViewController.h"
 #import "TableCell.h"
 #import "CurrentDrinksViewController.h"
+#import "DrinksCategory.h"
 
 @interface DrinksListViewController ()
 
@@ -87,6 +88,7 @@
     [formatter setLocale:[[NSLocale alloc]initWithLocaleIdentifier:@"nl_NL" ]];
     cell.lblDrinksPrice.text=[formatter stringFromNumber: drinksPrice[row]];
    // cell.lblDrinksPrice.text = [NSString stringWithFormat:@"%@", drinksPrice[row]];
+    
     return cell;
 }
 
