@@ -34,6 +34,7 @@
     self.view.backgroundColor = [UIColor colorWithRed:72.0/255.0 green:72.0/255.0 blue:73.0/255.0 alpha:1.0];
     self.view.tintColor =[UIColor colorWithRed:72.0/255.0 green:72.0/255.0 blue:73.0/255.0 alpha:1.0];
      //   self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:72 green:72 blue:73 alpha:1.0];
+        self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
     [self.tvNotifications setEditable:false];
     void (^notificationBlock)(Boolean, id, NSError*)  =
     ^(Boolean success,id result, NSError* error){
