@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="fpt-7B-wOD">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--View Controller - SMARTBAR-->
@@ -56,7 +56,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="4b0-YL-awY">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="4b0-YL-awY">
                                 <rect key="frame" x="26" y="77" width="269" height="107"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -159,7 +159,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Huidige bestelling" id="3To-rY-65l">
                         <barButtonItem key="rightBarButtonItem" title="Verwijder" id="Rtv-Hn-te3">
-                            <color key="tintColor" red="0.9215686917" green="0.2078431547" blue="0.14901961389999999" alpha="1" colorSpace="deviceRGB"/>
+                            <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="btnRemoveOrder:" destination="rw9-1h-lij" id="QW0-l5-5jx"/>
                             </connections>
@@ -263,7 +263,7 @@
                     <navigationItem key="navigationItem" title="Drankenlijst" id="Cqq-S4-CNK">
                         <barButtonItem key="backBarButtonItem" title="Home" id="cYW-Fs-VRA"/>
                         <barButtonItem key="rightBarButtonItem" title="Overzicht" id="fmt-wX-kC7">
-                            <color key="tintColor" red="0.9215686917" green="0.2078431547" blue="0.14901961389999999" alpha="1" colorSpace="deviceRGB"/>
+                            <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="rw9-1h-lij" kind="push" id="lWY-2i-xz0"/>
                             </connections>
@@ -401,7 +401,7 @@
     <resources>
         <image name="AR" width="21" height="21"/>
         <image name="Bestellen" width="30" height="21"/>
-        <image name="Image" width="300" height="207"/>
+        <image name="Logo" width="517" height="331"/>
         <image name="Meldingen" width="21" height="21"/>
         <image name="Placeholder_drankje" width="225" height="400"/>
         <image name="iBeacon" width="500" height="500"/>
