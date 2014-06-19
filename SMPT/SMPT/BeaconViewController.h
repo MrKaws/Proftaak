@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface BeaconViewController : UIViewController
-- (IBAction)btnHome:(id)sender;
 
+{
+  IBOutlet UIImageView *AnimatedPicture;
+}
+- (IBAction)btnHome:(id)sender;
 @end

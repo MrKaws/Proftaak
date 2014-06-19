@@ -26,6 +26,26 @@
 
 - (void)viewDidLoad
 {
+    
+    // zet alle plaatjes in array (.GIF idee)
+    
+    AnimatedPicture.animationImages = [NSArray arrayWithObjects:
+                                       [UIImage imageNamed:@"animatieB1.png"],
+                                       [UIImage imageNamed:@"animatieB2.png"],
+                                       [UIImage imageNamed:@"animatieB3.png"],
+                                       [UIImage imageNamed:@"animatieB4.png"],
+                                       [UIImage imageNamed:@"animatieB5.png"],
+                                       [UIImage imageNamed:@"animatieB6.png"], nil
+                                       ];
+    
+    
+    // blijven repeaten:
+    [AnimatedPicture setAnimationRepeatCount:0];
+    //snelheid
+    AnimatedPicture.animationDuration = 1;
+    // en starten natuurlijk
+    [AnimatedPicture startAnimating];
+    
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
         self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
