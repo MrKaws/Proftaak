@@ -76,6 +76,12 @@ static NSString * const kRegionLookupIdentifier = @"MyBeaconIdentifier";
             if(beacon.accuracy < 0.05)
             {
                 NSLog(@"verstuur");
+                
+                
+                //beacon uit
+                [self.locationManager stopMonitoringForRegion:self.beaconRegion];
+                [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion];
+                NSLog(@"Disabled ranging.");
             }
         }
     }
