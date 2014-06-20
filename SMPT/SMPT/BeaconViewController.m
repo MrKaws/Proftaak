@@ -123,6 +123,7 @@ static NSString * const kRegionLookupIdentifier = @"MyBeaconIdentifier";
 
 - (void)viewDidLoad
 {
+    [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:10.0/255.0 green:115.0/225.0 blue:225.0/225.0 alpha:1.0]];
     
     // zet alle plaatjes in array (.GIF idee)
     
@@ -154,9 +155,13 @@ static NSString * const kRegionLookupIdentifier = @"MyBeaconIdentifier";
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)btnAnnuleren:(id)sender {
+}
+
 - (IBAction)btnHome:(id)sender {
     ViewController *viewController = [[ViewController alloc] init];
     ViewController *secondViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"HomeView"];
     [self presentModalViewController:secondViewController animated:YES];
 }
+
 @end
