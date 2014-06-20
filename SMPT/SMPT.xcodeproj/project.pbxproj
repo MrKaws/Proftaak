@@ -43,11 +43,18 @@
 		BD07B35719361190004EBABA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BD07B35519361190004EBABA /* InfoPlist.strings */; };
 		BD07B35919361190004EBABA /* SMPTTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BD07B35819361190004EBABA /* SMPTTests.m */; };
 		BD07B367193629CB004EBABA /* CurrentOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD07B366193629CB004EBABA /* CurrentOrderViewController.m */; };
+		BD1680D919543CFC00B4096D /* OrderedDrinksTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1680D819543CFC00B4096D /* OrderedDrinksTableViewCell.m */; };
 		BD1E933A1949A85B00750245 /* DrinksCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1E93391949A85B00750245 /* DrinksCategory.m */; };
 		BDB71B511936658D004A3D1B /* DrinksListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB71B501936658D004A3D1B /* DrinksListViewController.m */; };
 		BDB71B5419367063004A3D1B /* TableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB71B5319367063004A3D1B /* TableCell.m */; };
 		BDCFAE2B1937621500AACED5 /* CurrentDrinksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDCFAE2A1937621500AACED5 /* CurrentDrinksViewController.m */; };
 		BDD1C8B01941B727007AB240 /* BeaconViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDD1C8AF1941B727007AB240 /* BeaconViewController.m */; };
+		F50FCE2F1954542A007B5FF1 /* ViewGeldAnimatie.m in Sources */ = {isa = PBXBuildFile; fileRef = F50FCE2E1954542A007B5FF1 /* ViewGeldAnimatie.m */; };
+		F50FCE3519545721007B5FF1 /* animatie51.png in Resources */ = {isa = PBXBuildFile; fileRef = F50FCE3019545721007B5FF1 /* animatie51.png */; };
+		F50FCE3619545721007B5FF1 /* animatie21.png in Resources */ = {isa = PBXBuildFile; fileRef = F50FCE3119545721007B5FF1 /* animatie21.png */; };
+		F50FCE3719545721007B5FF1 /* animatie11.png in Resources */ = {isa = PBXBuildFile; fileRef = F50FCE3219545721007B5FF1 /* animatie11.png */; };
+		F50FCE3819545721007B5FF1 /* animatie41.png in Resources */ = {isa = PBXBuildFile; fileRef = F50FCE3319545721007B5FF1 /* animatie41.png */; };
+		F50FCE3919545721007B5FF1 /* animatie31.png in Resources */ = {isa = PBXBuildFile; fileRef = F50FCE3419545721007B5FF1 /* animatie31.png */; };
 		F5148A87194085CE00C22891 /* iBeacon-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F5148A86194085CE00C22891 /* iBeacon-icon.png */; };
 		F5D8E1F919543FBA004C2FB4 /* animatieB1.png in Resources */ = {isa = PBXBuildFile; fileRef = F5D8E1F319543FBA004C2FB4 /* animatieB1.png */; };
 		F5D8E1FA19543FBA004C2FB4 /* animatieB2.png in Resources */ = {isa = PBXBuildFile; fileRef = F5D8E1F419543FBA004C2FB4 /* animatieB2.png */; };
@@ -137,6 +144,8 @@
 		BD07B35819361190004EBABA /* SMPTTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SMPTTests.m; sourceTree = "<group>"; };
 		BD07B365193629CB004EBABA /* CurrentOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentOrderViewController.h; sourceTree = "<group>"; };
 		BD07B366193629CB004EBABA /* CurrentOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentOrderViewController.m; sourceTree = "<group>"; };
+		BD1680D719543CFC00B4096D /* OrderedDrinksTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderedDrinksTableViewCell.h; path = ../OrderedDrinksTableViewCell.h; sourceTree = "<group>"; };
+		BD1680D819543CFC00B4096D /* OrderedDrinksTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderedDrinksTableViewCell.m; path = ../OrderedDrinksTableViewCell.m; sourceTree = "<group>"; };
 		BD1E93381949A85B00750245 /* DrinksCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DrinksCategory.h; path = ../DrinksCategory.h; sourceTree = "<group>"; };
 		BD1E93391949A85B00750245 /* DrinksCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DrinksCategory.m; path = ../DrinksCategory.m; sourceTree = "<group>"; };
 		BDB71B4F1936658D004A3D1B /* DrinksListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrinksListViewController.h; sourceTree = "<group>"; };
@@ -147,6 +156,13 @@
 		BDCFAE2A1937621500AACED5 /* CurrentDrinksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentDrinksViewController.m; sourceTree = "<group>"; };
 		BDD1C8AE1941B727007AB240 /* BeaconViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeaconViewController.h; sourceTree = "<group>"; };
 		BDD1C8AF1941B727007AB240 /* BeaconViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeaconViewController.m; sourceTree = "<group>"; };
+		F50FCE2D19545415007B5FF1 /* ViewGeldAnimatie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewGeldAnimatie.h; sourceTree = "<group>"; };
+		F50FCE2E1954542A007B5FF1 /* ViewGeldAnimatie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewGeldAnimatie.m; sourceTree = "<group>"; };
+		F50FCE3019545721007B5FF1 /* animatie51.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = animatie51.png; sourceTree = "<group>"; };
+		F50FCE3119545721007B5FF1 /* animatie21.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = animatie21.png; sourceTree = "<group>"; };
+		F50FCE3219545721007B5FF1 /* animatie11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = animatie11.png; sourceTree = "<group>"; };
+		F50FCE3319545721007B5FF1 /* animatie41.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = animatie41.png; sourceTree = "<group>"; };
+		F50FCE3419545721007B5FF1 /* animatie31.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = animatie31.png; sourceTree = "<group>"; };
 		F5148A86194085CE00C22891 /* iBeacon-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iBeacon-icon.png"; sourceTree = "<group>"; };
 		F5D8E1F319543FBA004C2FB4 /* animatieB1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = animatieB1.png; sourceTree = "<group>"; };
 		F5D8E1F419543FBA004C2FB4 /* animatieB2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = animatieB2.png; sourceTree = "<group>"; };
@@ -293,6 +309,8 @@
 				30C284C019372A8100E3363D /* Networking */,
 				30C284BD19372A0B00E3363D /* NotificationViewController.h */,
 				30C284BE19372A0B00E3363D /* NotificationViewController.m */,
+				BD1680D719543CFC00B4096D /* OrderedDrinksTableViewCell.h */,
+				BD1680D819543CFC00B4096D /* OrderedDrinksTableViewCell.m */,
 				BD07B33C19361190004EBABA /* AppDelegate.h */,
 				BD07B33D19361190004EBABA /* AppDelegate.m */,
 				BD07B33F19361190004EBABA /* Main.storyboard */,
@@ -307,6 +325,8 @@
 				BD07B365193629CB004EBABA /* CurrentOrderViewController.h */,
 				BD07B366193629CB004EBABA /* CurrentOrderViewController.m */,
 				BD07B34219361190004EBABA /* ViewController.h */,
+				F50FCE2D19545415007B5FF1 /* ViewGeldAnimatie.h */,
+				F50FCE2E1954542A007B5FF1 /* ViewGeldAnimatie.m */,
 				BD07B34319361190004EBABA /* ViewController.m */,
 				BD07B34519361190004EBABA /* Images.xcassets */,
 				BD07B33419361190004EBABA /* Supporting Files */,
@@ -320,6 +340,11 @@
 			isa = PBXGroup;
 			children = (
 				F5D8E1F319543FBA004C2FB4 /* animatieB1.png */,
+				F50FCE3019545721007B5FF1 /* animatie51.png */,
+				F50FCE3119545721007B5FF1 /* animatie21.png */,
+				F50FCE3219545721007B5FF1 /* animatie11.png */,
+				F50FCE3319545721007B5FF1 /* animatie41.png */,
+				F50FCE3419545721007B5FF1 /* animatie31.png */,
 				F5D8E1F419543FBA004C2FB4 /* animatieB2.png */,
 				F5D8E1F519543FBA004C2FB4 /* animatieB3.png */,
 				F5D8E1F619543FBA004C2FB4 /* animatieB4.png */,
@@ -430,11 +455,16 @@
 			files = (
 				BD07B34619361190004EBABA /* Images.xcassets in Resources */,
 				F5D8E1FE19543FBA004C2FB4 /* animatieB6.png in Resources */,
+				F50FCE3819545721007B5FF1 /* animatie41.png in Resources */,
 				F5D8E1FB19543FBA004C2FB4 /* animatieB3.png in Resources */,
 				F5D8E1FA19543FBA004C2FB4 /* animatieB2.png in Resources */,
+				F50FCE3619545721007B5FF1 /* animatie21.png in Resources */,
 				F5D8E1F919543FBA004C2FB4 /* animatieB1.png in Resources */,
 				F5D8E1FD19543FBA004C2FB4 /* animatieB5.png in Resources */,
+				F50FCE3519545721007B5FF1 /* animatie51.png in Resources */,
 				BD07B33819361190004EBABA /* InfoPlist.strings in Resources */,
+				F50FCE3719545721007B5FF1 /* animatie11.png in Resources */,
+				F50FCE3919545721007B5FF1 /* animatie31.png in Resources */,
 				F5148A87194085CE00C22891 /* iBeacon-icon.png in Resources */,
 				BD07B34119361190004EBABA /* Main.storyboard in Resources */,
 				F5D8E1FC19543FBA004C2FB4 /* animatieB4.png in Resources */,
@@ -458,6 +488,7 @@
 			files = (
 				30D80980193D05290073D521 /* AFHTTPRequestOperationManager.m in Sources */,
 				30D8097F193D051B0073D521 /* AFNetworkReachabilityManager.m in Sources */,
+				BD1680D919543CFC00B4096D /* OrderedDrinksTableViewCell.m in Sources */,
 				30D8097E193D04820073D521 /* WebRequests.m in Sources */,
 				30C284F619377A9B00E3363D /* UIRefreshControl+AFNetworking.m in Sources */,
 				BDD1C8B01941B727007AB240 /* BeaconViewController.m in Sources */,
@@ -477,6 +508,7 @@
 				30C284DB19377A8700E3363D /* AFURLRequestSerialization.m in Sources */,
 				BD1E933A1949A85B00750245 /* DrinksCategory.m in Sources */,
 				BD02F82B193F497600593E92 /* Drink.m in Sources */,
+				F50FCE2F1954542A007B5FF1 /* ViewGeldAnimatie.m in Sources */,
 				30C284F019377A9B00E3363D /* AFNetworkActivityIndicatorManager.m in Sources */,
 				30C284D919377A8700E3363D /* AFSecurityPolicy.m in Sources */,
 				30C284D519377A8700E3363D /* AFHTTPRequestOperation.m in Sources */,

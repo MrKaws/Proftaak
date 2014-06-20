@@ -12,4 +12,5 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *lblDrinksName;
 @property (strong, nonatomic) IBOutlet UILabel *lblDrinksPrice;
+//@property (strong, nonatomic) IBOutlet UILabel *lblDrinksAmount;
 @end

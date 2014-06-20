@@ -11,6 +11,7 @@
 #import "Drink.h"
 #import "ViewController.h"
 #import "Drink.h"
+#import "OrderedDrinksTableViewCell.h"
 
 @interface CurrentOrderViewController ()
 
@@ -35,11 +36,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    mijnSUPERtabel.separatorColor = [UIColor clearColor];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:72.0/255.0 green:72.0/255.0 blue:73.0/255.0 alpha:1.0]];
     [self.navigationController.navigationBar setTranslucent:NO];
     self.view.backgroundColor = [UIColor colorWithRed:72.0/255.0 green:72.0/255.0 blue:73.0/255.0 alpha:1.0];
-    self.view.tintColor =[UIColor colorWithRed:72.0/255.0 green:72.0/255.0 blue:73.0/255.0 alpha:1.0];    [self.tvOrders setEditable:false];
+  //  self.view.tintColor =[UIColor colorWithRed:72.0/255.0 green:72.0/255.0 blue:73.0/255.0 alpha:1.0];    [self.tvOrders setEditable:false];
      self.view.backgroundColor = [UIColor colorWithRed:72.0/255.0 green:72.0/255.0 blue:73.0/255.0 alpha:1.0];
     self.view.tintColor =[UIColor colorWithRed:72.0/255.0 green:72.0/255.0 blue:73.0/255.0 alpha:1.0];
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
@@ -49,10 +51,10 @@
     orders = array;
     NSString *temp = @"";
     NSString *items = @"";
-    NSLog(@"array size %i",[array count]);
+    NSLog(@"array size %lu",(unsigned long)[array count]);
     if([array count] == 0){
         temp = @"Er zijn nog geen bestellingen";
-        [self.tvOrders setText:temp];
+   //     [self.tvOrders setText:temp];
     }
     items = [NSString stringWithFormat:@"%@\t\t\t%@\t\t\t%@", @"Naam", @"Aantal", @"Bedrag"];
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
@@ -64,10 +66,10 @@
         Drink* d = (Drink*)[array objectAtIndex:i];
         double totalPrice = [d.totalPrice doubleValue];
        // NSLog(@"name %@ amount %i",d.name,d.amount);
-        temp = [NSString stringWithFormat:@"%@%@\t\t\t%i\t\t\t\t%@\n", temp, d.name, d.amount,[formatter stringFromNumber: @(totalPrice)]];
+        temp = [NSString stringWithFormat:@"%@%@\t\t\t%li\t\t\t\t%@\n", temp, d.name, (long)d.amount,[formatter stringFromNumber: @(totalPrice)]];
        // temp = [NSString stringWithFormat:@"%@", [array objectAtIndex:i]];
     }
-    [self.tvOrders setText:temp];
+  //  [self.tvOrders setText:temp];
     [lblItems setText:items];
     double value = 0;
     for(Drink *d in array){
@@ -122,12 +124,49 @@
 
         //replace appname with any specific name you want
         [orders removeAllObjects];
-        [self.tvOrders setText:@"Er zijn nog geen bestellingen"];
+        [mijnSUPERtabel reloadData];
+   //     [self.tvOrders setText:@"Er zijn nog geen bestellingen"];
         [self.lblTotalPrice setText:@""];
     }
 }
 
 -(void)closeAlert {
     [noOrderAlert dismissWithClickedButtonIndex:0 animated:YES];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    NSMutableArray *array = [DataContainer getOrderedDrinks];
+    return [array count];
+  
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"TableCell";
+    OrderedDrinksTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    // Configure the cell...
+    Drink* d = [[DataContainer getOrderedDrinks]objectAtIndex:indexPath.row];
+
+
+    cell.lblDrinksName.text = d.name;
+    cell.lblDrinksAmount.text = [NSString stringWithFormat:@"%li",(long)d.amount];
+
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+    [formatter setCurrencyCode:@"EUR"];
+    [formatter setLocale:[[NSLocale alloc]initWithLocaleIdentifier:@"nl_NL"]];
+    cell.lblTotalPrice.text =[formatter stringFromNumber:d.totalPrice];
+
+    
+    // cell.lblDrinksPrice.text = [NSString stringWithFormat:@"%@", drinksPrice[row]];
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [orders removeObjectAtIndex:indexPath.row];
+    [mijnSUPERtabel reloadData];
 }
 @end

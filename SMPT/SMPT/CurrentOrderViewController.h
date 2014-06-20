@@ -8,13 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CurrentOrderViewController : UIViewController
+@interface CurrentOrderViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>{
+    IBOutlet UITableView *mijnSUPERtabel;
+}
 //@property (strong, nonatomic) IBOutlet UILabel *lblShowOrder;
 - (IBAction)btnOrder:(id)sender;
-@property (weak, nonatomic) IBOutlet UITextView *tvOrders;
 - (IBAction)btnRemoveOrder:(id)sender;
 @property (strong, nonatomic) IBOutlet UILabel *lblTotalPrice;
 @property (strong, nonatomic) IBOutlet UILabel *lblItems;
 @property NSMutableArray *orders;
 @property UIAlertView *noOrderAlert;
+
 @end
