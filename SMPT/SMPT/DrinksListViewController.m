@@ -86,7 +86,7 @@
     for(Drink* drink in self.drinks)
     {
         if(drink.categoryID+1 == section)
-            count++;
+            count++;	
         
     }
     NSLog(@"count: %i",count);
@@ -105,10 +105,13 @@
     [formatter setLocale:[[NSLocale alloc]initWithLocaleIdentifier:@"nl_NL"]];
 
     if(indexPath.section == 0){
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.userInteractionEnabled = NO;
+        cell.accessoryType = UITableViewCellAccessoryNone;
        NSInteger amount =  [DataContainer getOrderedDrinks].count;
-        cell.lblDrinksName.text = [NSString stringWithFormat:@"Aantal drankjes: %li",(long)amount];
-        NSDecimal saldo = [DataContainer getCurrentUser].saldo;
-        cell.lblDrinksPrice.text =[formatter stringFromNumber: [NSDecimalNumber decimalNumberWithDecimal:saldo]];
+        cell.lblDrinksName.text = [NSString stringWithFormat:@"Aantal: %li",(long)amount];
+        NSDecimal saldo = [DataContainer getCurrentUser].theoretical_saldo;
+        cell.lblDrinksPrice.text =[NSString stringWithFormat:@"Huidig saldo:%@",[formatter stringFromNumber: [NSDecimalNumber decimalNumberWithDecimal:saldo]]];
         return cell;
     }
     Drink* d =[self getDrinkFromTable:indexPath];
@@ -146,7 +149,8 @@
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if([[segue identifier] isEqualToString:@"ShowDetails"])
+
+        if([[segue identifier] isEqualToString:@"ShowDetails"])
     {
         CurrentDrinksViewController *cdv = [segue destinationViewController];
          Drink* d =[self getDrinkFromTable:[self.tableView indexPathForSelectedRow]];
