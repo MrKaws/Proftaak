@@ -13,6 +13,7 @@
 @property NSString* first_name;
 @property NSString* last_name;
 @property NSDecimal saldo;
+@property NSDecimal theoretical_saldo;
 -(NSInteger) getId;
 
 @end
