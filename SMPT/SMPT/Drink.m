@@ -13,7 +13,7 @@
 //-(NSString*)getName{
 //    return self.name;
 //}
--(id)initWithName:(NSString *)name categoryID:(NSInteger)catId price:(NSNumber*) price andID:(NSInteger)id{
+-(id)initWithName:(NSString *)name categoryID:(NSInteger)catId price:(NSNumber*) price andID:(NSInteger)id withImage:(NSString*) image ofType:(NSString*) imageType{
     self = [super init] ; // or another one ; here you should use the designated init. of the parent class
     
     if (self){
@@ -21,6 +21,8 @@
         self.name = name;
         self.id = id;
         self.price =price;
+        self.imagePath = image;
+        self.imageType = imageType;
     }
     
     return self;}

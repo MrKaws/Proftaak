@@ -11,6 +11,7 @@
 #import "CurrentDrinksViewController.h"
 #import "DrinksCategory.h"
 #import "Drink.h"
+#import "DataContainer.h"
 
 @interface DrinksListViewController ()
 
@@ -44,7 +45,7 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.drinks = @[[[Drink alloc] initWithName:@"Cola" categoryID:2 price:@2.50 andID:0],[[Drink alloc]initWithName:@"ColaLight" categoryID:2 price:@2.50 andID:1],[[Drink alloc] initWithName:@"Fanta" categoryID:2 price:@2.50 andID:1],[[Drink alloc] initWithName:@"7 up" categoryID:2 price:@2.50 andID:3],[[Drink alloc] initWithName:@"Ice Tea" categoryID:2 price:@3.50 andID:4],[[Drink alloc] initWithName:@"Fles" categoryID:1 price:@3.75 andID:5], [[Drink alloc] initWithName:@"Glas" categoryID:1 price:@2.75 andID:6], [[Drink alloc] initWithName:@"Corona" categoryID:1 price:@4.25 andID:7],[[Drink alloc] initWithName:@"Radler" categoryID:1 price:@4.00 andID:8], [[Drink alloc] initWithName:@"Rose" categoryID:0 price:@3.75 andID:9],[[Drink alloc] initWithName:@"Fristi" categoryID:3 price:@2.50 andID:11],[[Drink alloc] initWithName:@"Chocomel" categoryID:3 price:@2.50 andID:12]];
+    self.drinks = @[[[Drink alloc] initWithName:@"Cola" categoryID:2 price:@2.50 andID:0 withImage:@"Images.xcassets%d/Cola%d/ColaFlesje_SMARTBAR%d" ofType:@"png"],[[Drink alloc]initWithName:@"ColaLight" categoryID:2 price:@2.50 andID:1 withImage:@"Images.xcassets%d/Cola_Light%d/Cola_Light%d" ofType:@"png"],[[Drink alloc] initWithName:@"Fanta" categoryID:2 price:@2.50 andID:1 withImage:@"Images.xcassets%d/Fanta%d/fanta%d" ofType:@"png"],[[Drink alloc] initWithName:@"7 up" categoryID:2 price:@2.50 andID:3 withImage:@"Images.xcassets%d/7-up%d/7-up%d" ofType:@"png"],[[Drink alloc] initWithName:@"Ice Tea" categoryID:2 price:@3.50 andID:4 withImage:@"Images.xcassets%d/IceTea%d/IceTea%d" ofType:@"png"],[[Drink alloc] initWithName:@"Fles" categoryID:1 price:@3.75 andID:5 withImage:@"Images.xcassets%d/Bier_Fles%d/bierfles%d" ofType:@"png"], [[Drink alloc] initWithName:@"Glas" categoryID:1 price:@2.75 andID:6 withImage:@"Images.xcassets%d/Bier_Glas%d/bierglas%d" ofType:@"png"], [[Drink alloc] initWithName:@"Corona" categoryID:1 price:@4.25 andID:7 withImage:@"Images.xcassets%d/Corona%d/corona%d" ofType:@"png"],[[Drink alloc] initWithName:@"Radler" categoryID:1 price:@4.00 andID:8 withImage:@"Images.xcassets%d/Radler%d/radler%d" ofType:@"png"], [[Drink alloc] initWithName:@"Rose" categoryID:0 price:@3.75 andID:9 withImage:@"Images.xcassets%d/Rose%d/rose%d" ofType:@"png"],[[Drink alloc] initWithName:@"Fristi" categoryID:3 price:@2.50 andID:11 withImage:@"Images.xcassets%d/Fristi%d/Fristi%d" ofType:@"png"],[[Drink alloc] initWithName:@"Chocomel" categoryID:3 price:@2.50 andID:12 withImage:@"Images.xcassets%d/Chocomel%d/Chocomel%d" ofType:@"png"]];
     NSSortDescriptor* sortDescriptor=[[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
   //  NSSortDescriptor* catDescriptor = [[NSSortDescriptor alloc]initWithKey:@"categoryId" ascending:YES];
     
@@ -72,18 +73,20 @@
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return self.categories.count;
+    return self.categories.count+1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {	
 #warning Incomplete method implementation.
-    NSInteger count = 0;NSLog(@"Section: %i",(long)section);
-    
+    NSInteger count = 0;
+    NSLog(@"Section: %i",(long)section);
+  if(section == 0){
+      return 1;}
     for(Drink* drink in self.drinks)
     {
-        if(drink.categoryID == section)
-            count++;
+        if(drink.categoryID+1 == section)
+            count++;	
         
     }
     NSLog(@"count: %i",count);
@@ -92,17 +95,29 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     static NSString *CellIdentifier = @"TableCell";
     TableCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
        // Configure the cell...
-    Drink* d =[self getDrinkFromTable:indexPath];
-    
-    cell.lblDrinksName.text = d.name;
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     [formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
     [formatter setCurrencyCode:@"EUR"];
     [formatter setLocale:[[NSLocale alloc]initWithLocaleIdentifier:@"nl_NL"]];
-    cell.lblDrinksPrice.text=[formatter stringFromNumber: d.price];
+
+    if(indexPath.section == 0){
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.userInteractionEnabled = NO;
+        cell.accessoryType = UITableViewCellAccessoryNone;
+       NSInteger amount =  [DataContainer getOrderedDrinks].count;
+        cell.lblDrinksName.text = [NSString stringWithFormat:@"Aantal: %li",(long)amount];
+        NSDecimal saldo = [DataContainer getCurrentUser].theoretical_saldo;
+        cell.lblDrinksPrice.text =[NSString stringWithFormat:@"Huidig saldo:%@",[formatter stringFromNumber: [NSDecimalNumber decimalNumberWithDecimal:saldo]]];
+        return cell;
+    }
+    Drink* d =[self getDrinkFromTable:indexPath];
+    
+    cell.lblDrinksName.text = d.name;
+        cell.lblDrinksPrice.text=[formatter stringFromNumber: d.price];
    // cell.lblDrinksPrice.text = [NSString stringWithFormat:@"%@", drinksPrice[row]];
     
     return cell;
@@ -110,8 +125,12 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     NSString *sectionName;
+    if(section == 0)
+    {
+        return @"Huidige bestelling";
+    }
     for(DrinksCategory* cat in self.categories){
-        if(cat.categoryID == section){
+        if(cat.categoryID+1 == section){
             sectionName = cat.categoryName;
                     }
     }
@@ -122,7 +141,7 @@
 
     NSMutableArray* sectionDrinks = [[NSMutableArray alloc]init];
     for(Drink* d in self.drinks){
-        if(d.categoryID == section)
+        if(d.categoryID+1 == section)
             [sectionDrinks addObject: d];
     }
     Drink* d = [sectionDrinks objectAtIndexedSubscript:indexPath.row];
@@ -130,7 +149,8 @@
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if([[segue identifier] isEqualToString:@"ShowDetails"])
+
+        if([[segue identifier] isEqualToString:@"ShowDetails"])
     {
         CurrentDrinksViewController *cdv = [segue destinationViewController];
          Drink* d =[self getDrinkFromTable:[self.tableView indexPathForSelectedRow]];
@@ -139,6 +159,7 @@
     }
 
 }
+
 
 /*
 // Override to support conditional editing of the table view.
