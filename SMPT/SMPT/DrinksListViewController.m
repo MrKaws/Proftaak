@@ -72,14 +72,16 @@
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return self.categories.count;
+    return self.categories.count+1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {	
 #warning Incomplete method implementation.
-    NSInteger count = 0;NSLog(@"Section: %i",(long)section);
-    
+    NSInteger count = 0;
+    NSLog(@"Section: %i",(long)section);
+    if(section == self.categories.count){
+        return 1;}
     for(Drink* drink in self.drinks)
     {
         if(drink.categoryID == section)
@@ -110,6 +112,10 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     NSString *sectionName;
+    if(section == self.categories.count)
+    {
+        return @"Huidige bestelling";
+    }
     for(DrinksCategory* cat in self.categories){
         if(cat.categoryID == section){
             sectionName = cat.categoryName;
