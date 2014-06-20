@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+@import CoreLocation;
+@import CoreBluetooth;
 
-@interface BeaconViewController : UIViewController
 
+@interface BeaconViewController : UIViewController<
+    CLLocationManagerDelegate,
+    CBPeripheralManagerDelegate>
 {
   IBOutlet UIImageView *AnimatedPicture;
 }

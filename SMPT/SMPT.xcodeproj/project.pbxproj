@@ -49,6 +49,7 @@
 		BDCFAE2B1937621500AACED5 /* CurrentDrinksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDCFAE2A1937621500AACED5 /* CurrentDrinksViewController.m */; };
 		BDD1C8B01941B727007AB240 /* BeaconViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDD1C8AF1941B727007AB240 /* BeaconViewController.m */; };
 		F5148A87194085CE00C22891 /* iBeacon-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F5148A86194085CE00C22891 /* iBeacon-icon.png */; };
+		F5148A8C194087C600C22891 /* JEHRegionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F5148A8B194087C600C22891 /* JEHRegionInfo.m */; };
 		F56275DD1952FB3B0021A234 /* animatieB1.png in Resources */ = {isa = PBXBuildFile; fileRef = F56275D71952FB3B0021A234 /* animatieB1.png */; };
 		F56275DE1952FB3B0021A234 /* animatieB2.png in Resources */ = {isa = PBXBuildFile; fileRef = F56275D81952FB3B0021A234 /* animatieB2.png */; };
 		F56275DF1952FB3B0021A234 /* animatieB3.png in Resources */ = {isa = PBXBuildFile; fileRef = F56275D91952FB3B0021A234 /* animatieB3.png */; };
@@ -148,6 +149,8 @@
 		BDD1C8AE1941B727007AB240 /* BeaconViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeaconViewController.h; sourceTree = "<group>"; };
 		BDD1C8AF1941B727007AB240 /* BeaconViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeaconViewController.m; sourceTree = "<group>"; };
 		F5148A86194085CE00C22891 /* iBeacon-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iBeacon-icon.png"; sourceTree = "<group>"; };
+		F5148A8B194087C600C22891 /* JEHRegionInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JEHRegionInfo.m; sourceTree = "<group>"; };
+		F5148A8D194087CD00C22891 /* JEHRegionInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JEHRegionInfo.h; sourceTree = "<group>"; };
 		F56275D71952FB3B0021A234 /* animatieB1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = animatieB1.png; sourceTree = "<group>"; };
 		F56275D81952FB3B0021A234 /* animatieB2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = animatieB2.png; sourceTree = "<group>"; };
 		F56275D91952FB3B0021A234 /* animatieB3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = animatieB3.png; sourceTree = "<group>"; };
