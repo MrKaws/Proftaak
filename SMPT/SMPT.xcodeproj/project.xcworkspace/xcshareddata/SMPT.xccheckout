@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>87D40868-7D7E-463E-AC89-7825C574C63E</string>
+	<string>1DBC631D-BA65-45E9-92B1-D237FEA9F72A</string>
 	<key>IDESourceControlProjectName</key>
 	<string>SMPT</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>E67FDFC7-458C-467F-A524-8C34A831DB6A</key>
-		<string>https://github.com/MrKaws/Proftaak.git</string>
+		<key>E8BF0F8E-D79D-4665-ADC5-31B5CDEEA433</key>
+		<string>https://github.com/MrKaws/Proftaak</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>SMPT/SMPT.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>E67FDFC7-458C-467F-A524-8C34A831DB6A</key>
+		<key>E8BF0F8E-D79D-4665-ADC5-31B5CDEEA433</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/MrKaws/Proftaak.git</string>
+	<string>https://github.com/MrKaws/Proftaak</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>E67FDFC7-458C-467F-A524-8C34A831DB6A</string>
+	<string>E8BF0F8E-D79D-4665-ADC5-31B5CDEEA433</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>E67FDFC7-458C-467F-A524-8C34A831DB6A</string>
+			<string>E8BF0F8E-D79D-4665-ADC5-31B5CDEEA433</string>
 			<key>IDESourceControlWCCName</key>
-			<string>Proftaak</string>
+			<string>Proftaak BAR</string>
 		</dict>
 	</array>
 </dict>
