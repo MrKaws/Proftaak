@@ -71,8 +71,15 @@ static NSString * const kRegionLookupIdentifier = @"MyBeaconIdentifier";
         NSLog(@"No beacons found.");
     } else {
         NSLog(@"Located %lu beacon(s).", (unsigned long)[beacons count]);
+        for (CLBeacon * beacon in beacons) {
+            NSLog(@"%.5f. - %@", beacon.accuracy, beacon.proximityUUID.UUIDString);
+            if(beacon.accuracy < 0.05)
+            {
+                NSLog(@"verstuur");
+            }
+        }
     }
-    self.detectedBeacons = beacons;
+    //self.detectedBeacons = beacons;
 }
 
 #pragma mark - Peripheral Manager
