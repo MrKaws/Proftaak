@@ -155,9 +155,13 @@ static NSString * const kRegionLookupIdentifier = @"MyBeaconIdentifier";
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)btnAnnuleren:(id)sender {
+}
+
 - (IBAction)btnHome:(id)sender {
     ViewController *viewController = [[ViewController alloc] init];
     ViewController *secondViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"HomeView"];
     [self presentModalViewController:secondViewController animated:YES];
 }
+
 @end
