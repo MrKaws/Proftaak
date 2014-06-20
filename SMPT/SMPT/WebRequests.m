@@ -61,7 +61,7 @@ NSString * const sendOrder = BASE_URL @"sendorder.php";
                             nil];*/
     [WebRequests makeHTTPPostRequest:params url:getUserData withBlock:block];
 }
-+(void) sendOrder:(NSMutableArray*) orderId withBlock:	(void (^)(Boolean, id,NSError*)) block{
++(void) sendOrder:(NSMutableArray*) orderId withBlock:	(void (^)(Boolean, id,NSError*)) block andbID: (NSString*) bID{
     NSInteger userId = [[DataContainer getCurrentUser]getId ];
     //userId = 1;
    // NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
@@ -73,7 +73,7 @@ NSString * const sendOrder = BASE_URL @"sendorder.php";
     //NSError* error = nil;
     //NSData *jsonData2 = [NSJSONSerialization dataWithJSONObject:paramArray options:NSJSONWritingPrettyPrinted error:&error];
     //NSString *jsonString = [[NSString alloc] initWithData:jsonData2 encoding:NSUTF8StringEncoding];
-    NSDictionary* params = @{@"uid":[@(userId)stringValue], @"drinks":paramArray};
+    NSDictionary* params = @{@"uid":[@(userId)stringValue], @"drinks":paramArray, @"bid":bID};
 
     [WebRequests makeHTTPPostRequest:params url:sendOrder withBlock:block];
 

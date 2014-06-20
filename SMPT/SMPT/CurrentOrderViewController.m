@@ -89,11 +89,11 @@
 
 - (IBAction)btnOrder:(id)sender {
     if ([orders count] > 0) {
-        ViewController *vc = [[ViewController alloc]init];
+      ViewController *vc = [[ViewController alloc]init];
         [vc getDrink];
         ViewController *viewController = [[ViewController alloc] init];
         ViewController *secondViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"BeaconView"];
-        [self presentModalViewController:secondViewController animated:YES];
+        [self presentModalViewController:secondViewController animated:YES]; 
         
     }
     

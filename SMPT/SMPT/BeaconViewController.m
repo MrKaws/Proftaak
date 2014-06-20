@@ -78,7 +78,22 @@ static NSString * const kRegionLookupIdentifier = @"MyBeaconIdentifier";
             if(beacon.accuracy < 0.05)
             {
                 NSLog(@"verstuur");
-                [WebRequests sendOrder:[DataContainer getOrderedDrinks] withBlock:nil];
+                void (^getDrinkBlock)(Boolean, id, NSError*)  =
+                ^(Boolean success,id result, NSError* error){
+                    if(success)
+                    {
+                        NSLog(@"%@",[result class]);
+                        //[MBProgressHUD hideHUDForView:self.view animated:YES];
+                        NSDictionary* dc = result;
+                        // NSLog(@"%@",result.description);
+                        
+                        //  for (NSDictionary* dc in result){
+                        NSLog(@"%@", dc.description);
+                    }
+                    
+                };
+
+                [WebRequests sendOrder:[DataContainer getOrderedDrinks] withBlock:getDrinkBlock andbID:beacon.proximityUUID.UUIDString];
                 
                 
                 //beacon uit
