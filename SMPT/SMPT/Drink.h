@@ -11,12 +11,14 @@
 @interface Drink : NSObject
 
 @property NSString* name;
-@property  NSInteger id;
-@property  NSInteger amount;
+@property NSInteger id;
+@property NSInteger amount;
 @property NSNumber* price;
 @property NSNumber *totalPrice;
 @property NSInteger categoryID;
--(id)initWithName:(NSString *)name categoryID:(NSInteger)id price:(NSNumber*) price andID:(NSInteger)id;
+@property NSString* imagePath;
+@property NSString* imageType;
+-(id)initWithName:(NSString *)name categoryID:(NSInteger)id price:(NSNumber*) price andID:(NSInteger)id withImage:(NSString*) image ofType:(NSString*) imageType;
 //-(NSDictionary*)dictionaryWithIDandAmount;
 -(NSString*)dictionaryWithIDandAmount;
 /*-(NSString*)getName;

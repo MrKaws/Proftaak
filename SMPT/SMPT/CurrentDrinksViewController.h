@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface CurrentDrinksViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIImageView *ivDrink;
 
 @property (strong, nonatomic) IBOutlet UILabel *lblDrinksPrice;
 @property (strong, nonatomic) IBOutlet UILabel *lblTotal;
