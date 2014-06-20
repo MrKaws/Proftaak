@@ -10,6 +10,7 @@
 #import "Drink.h"
 
 @interface DrinksListViewController : UITableViewController
+@property (weak, nonatomic) IBOutlet UILabel *lbOrder;
 @property NSArray *drinksID;
 @property NSArray *drinksName;
 @property NSArray *drinksPrice;
