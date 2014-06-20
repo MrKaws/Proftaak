@@ -17,6 +17,5 @@
 {
   IBOutlet UIImageView *AnimatedPicture;
 }
-- (IBAction)btnAnnuleren:(id)sender;
 - (IBAction)btnHome:(id)sender;
 @end
