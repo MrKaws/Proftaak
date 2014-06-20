@@ -314,8 +314,6 @@
 				BD07B34519361190004EBABA /* Images.xcassets */,
 				BD07B33419361190004EBABA /* Supporting Files */,
 				30E85DBC193B67F9005A2951 /* DataContainer.h */,
-				F5148A8B194087C600C22891 /* JEHRegionInfo.m */,
-				F5148A8D194087CD00C22891 /* JEHRegionInfo.h */,
 				30E85DBD193B67F9005A2951 /* DataContainer.m */,
 			);
 			path = SMPT;
@@ -477,7 +475,6 @@
 				30C284FE193785B800E3363D /* NotificationItem.m in Sources */,
 				30C284DC19377A8700E3363D /* AFURLResponseSerialization.m in Sources */,
 				30C284F319377A9B00E3363D /* UIButton+AFNetworking.m in Sources */,
-				F5148A8C194087C600C22891 /* JEHRegionInfo.m in Sources */,
 				BD07B34419361190004EBABA /* ViewController.m in Sources */,
 				30C284F119377A9B00E3363D /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				30C284DB19377A8700E3363D /* AFURLRequestSerialization.m in Sources */,
