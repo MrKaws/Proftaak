@@ -39,6 +39,7 @@
 	// Do any additional setup after loading the view.
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:72.0/255.0 green:72.0/255.0 blue:73.0/255.0 alpha:1.0]];
+    [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:10.0/255.0 green:115.0/225.0 blue:225.0/225.0 alpha:1.0]];
    [self.navigationController.navigationBar setTranslucent:NO];
     self.view.backgroundColor = [UIColor colorWithRed:72.0/255.0 green:72.0/255.0 blue:73.0/255.0 alpha:1.0];
     self.view.tintColor =[UIColor colorWithRed:72.0/255.0 green:72.0/255.0 blue:73.0/255.0 alpha:1.0];

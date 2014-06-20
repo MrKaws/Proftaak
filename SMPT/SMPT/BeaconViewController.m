@@ -108,6 +108,7 @@ static NSString * const kRegionLookupIdentifier = @"MyBeaconIdentifier";
 
 - (void)viewDidLoad
 {
+    [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:10.0/255.0 green:115.0/225.0 blue:225.0/225.0 alpha:1.0]];
     
     // zet alle plaatjes in array (.GIF idee)
     
