@@ -80,6 +80,9 @@
     [lblTotalPrice setNumberOfLines:0];
     [lblTotalPrice sizeToFit];
     //[self.tvOrders setEditable:false];
+    if(orders == 0){
+        [lblItems setText:@"Er zijn nog geen bestellingen"];
+    }
     
 }
 
@@ -168,5 +171,9 @@
 {
     [orders removeObjectAtIndex:indexPath.row];
     [mijnSUPERtabel reloadData];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [self.view setNeedsDisplay];
 }
 @end
