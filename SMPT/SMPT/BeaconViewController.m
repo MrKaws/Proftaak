@@ -93,7 +93,7 @@ static NSString * const kRegionLookupIdentifier = @"MyBeaconIdentifier";
                     
                 };
 
-                [WebRequests sendOrder:[DataContainer getOrderedDrinks] withBlock:getDrinkBlock];
+                [WebRequests sendOrder:[DataContainer getOrderedDrinks] withBlock:getDrinkBlock andbID:beacon.proximityUUID.UUIDString];
                 
                 
                 //beacon uit
