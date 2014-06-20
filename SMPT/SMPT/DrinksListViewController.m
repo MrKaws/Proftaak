@@ -11,6 +11,7 @@
 #import "CurrentDrinksViewController.h"
 #import "DrinksCategory.h"
 #import "Drink.h"
+#import "DataContainer.h"
 
 @interface DrinksListViewController ()
 
@@ -72,7 +73,7 @@
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return self.categories.count;
+    return self.categories.count+1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -80,11 +81,11 @@
 #warning Incomplete method implementation.
     NSInteger count = 0;
     NSLog(@"Section: %i",(long)section);
-  /*  if(section == self.categories.count){
-        return 1;}*/
+  if(section == 0){
+      return 1;}
     for(Drink* drink in self.drinks)
     {
-        if(drink.categoryID == section)
+        if(drink.categoryID+1 == section)
             count++;
         
     }
@@ -94,17 +95,26 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     static NSString *CellIdentifier = @"TableCell";
     TableCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
        // Configure the cell...
-    Drink* d =[self getDrinkFromTable:indexPath];
-    
-    cell.lblDrinksName.text = d.name;
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     [formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
     [formatter setCurrencyCode:@"EUR"];
     [formatter setLocale:[[NSLocale alloc]initWithLocaleIdentifier:@"nl_NL"]];
-    cell.lblDrinksPrice.text=[formatter stringFromNumber: d.price];
+
+    if(indexPath.section == 0){
+       NSInteger amount =  [DataContainer getOrderedDrinks].count;
+        cell.lblDrinksName.text = [NSString stringWithFormat:@"Aantal drankjes: %li",(long)amount];
+        NSDecimal saldo = [DataContainer getCurrentUser].saldo;
+        cell.lblDrinksPrice.text =[formatter stringFromNumber: [NSDecimalNumber decimalNumberWithDecimal:saldo]];
+        return cell;
+    }
+    Drink* d =[self getDrinkFromTable:indexPath];
+    
+    cell.lblDrinksName.text = d.name;
+        cell.lblDrinksPrice.text=[formatter stringFromNumber: d.price];
    // cell.lblDrinksPrice.text = [NSString stringWithFormat:@"%@", drinksPrice[row]];
     
     return cell;
@@ -112,12 +122,12 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     NSString *sectionName;
-    /*if(section == self.categories.count)
+    if(section == 0)
     {
         return @"Huidige bestelling";
-    }*/
+    }
     for(DrinksCategory* cat in self.categories){
-        if(cat.categoryID == section){
+        if(cat.categoryID+1 == section){
             sectionName = cat.categoryName;
                     }
     }
@@ -128,7 +138,7 @@
 
     NSMutableArray* sectionDrinks = [[NSMutableArray alloc]init];
     for(Drink* d in self.drinks){
-        if(d.categoryID == section)
+        if(d.categoryID+1 == section)
             [sectionDrinks addObject: d];
     }
     Drink* d = [sectionDrinks objectAtIndexedSubscript:indexPath.row];
@@ -145,6 +155,7 @@
     }
 
 }
+
 
 /*
 // Override to support conditional editing of the table view.
