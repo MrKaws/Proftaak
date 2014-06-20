@@ -8,6 +8,8 @@
 
 #import "BeaconViewController.h"
 #import "ViewController.h"
+#import "WebRequests.h"
+#import "DataContainer.h"
 
 static NSString * const kProximityUUID = @"7AF66857-FF47-4225-AC7C-B562511DB4CE";
 static NSString * const kRegionLookupIdentifier = @"MyBeaconIdentifier";
@@ -76,6 +78,7 @@ static NSString * const kRegionLookupIdentifier = @"MyBeaconIdentifier";
             if(beacon.accuracy < 0.05)
             {
                 NSLog(@"verstuur");
+                [WebRequests sendOrder:[DataContainer getOrderedDrinks] withBlock:nil];
                 
                 
                 //beacon uit
