@@ -52,6 +52,7 @@
     NSLog(@"array size %lu",(unsigned long)[array count]);
     if([array count] == 0){
         temp = @"Er zijn nog geen bestellingen";
+        self.navigationItem.rightBarButtonItem.enabled = NO;
    //     [self.tvOrders setText:temp];
     }
     items = [NSString stringWithFormat:@"%@\t\t\t%@\t\t\t%@", @"Naam", @"Aantal", @"Bedrag"];
@@ -126,6 +127,19 @@
         //replace appname with any specific name you want
         [orders removeAllObjects];
         [mijnSUPERtabel reloadData];
+        NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+        [formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+        [formatter setCurrencyCode:@"EUR"];
+        [formatter setLocale:[[NSLocale alloc]initWithLocaleIdentifier:@"nl_NL" ]];
+        double value = 0;
+        for(Drink *d in orders){
+            value =  value + [d.totalPrice doubleValue];
+        }
+        
+        [lblTotalPrice setText:[NSString stringWithFormat:@"%@\t\t\t\t\t\t\t%@", @"Totaal: ", [formatter stringFromNumber:@(value)]]];
+        [lblTotalPrice setNumberOfLines:0];
+        [lblTotalPrice sizeToFit];
+
    //     [self.tvOrders setText:@"Er zijn nog geen bestellingen"];
     //    [self.lblTotalPrice setText:@""];
     }
@@ -169,9 +183,18 @@
 {
     [orders removeObjectAtIndex:indexPath.row];
     [mijnSUPERtabel reloadData];
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+    [formatter setCurrencyCode:@"EUR"];
+    [formatter setLocale:[[NSLocale alloc]initWithLocaleIdentifier:@"nl_NL" ]];
+    double value = 0;
+    for(Drink *d in orders){
+        value =  value + [d.totalPrice doubleValue];
+    }
+    
+    [lblTotalPrice setText:[NSString stringWithFormat:@"%@\t\t\t\t\t\t\t%@", @"Totaal: ", [formatter stringFromNumber:@(value)]]];
+    [lblTotalPrice setNumberOfLines:0];
+    [lblTotalPrice sizeToFit];
 }
 
--(void)viewWillAppear:(BOOL)animated{
-    [self.view setNeedsDisplay];
-}
 @end
