@@ -60,6 +60,9 @@
     //drinksName = [drinksName sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
  
 }
+-(void) viewDidAppear:(BOOL)animated{
+    [self.tableView reloadData];
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -108,10 +111,13 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.userInteractionEnabled = NO;
         cell.accessoryType = UITableViewCellAccessoryNone;
-       NSInteger amount =  [DataContainer getOrderedDrinks].count;
+        NSInteger amount =  0;
+        for(Drink* d in [DataContainer getOrderedDrinks]){
+            amount = amount + d.amount;
+        }
         cell.lblDrinksName.text = [NSString stringWithFormat:@"Aantal: %li",(long)amount];
-        NSDecimal saldo = [DataContainer getCurrentUser].theoretical_saldo;
-        cell.lblDrinksPrice.text =[NSString stringWithFormat:@"Huidig saldo:%@",[formatter stringFromNumber: [NSDecimalNumber decimalNumberWithDecimal:saldo]]];
+        double saldo = [DataContainer getCurrentUser].theoretical_saldo;
+        cell.lblDrinksPrice.text =[NSString stringWithFormat:@"Saldo:%@",[formatter stringFromNumber: [NSNumber numberWithDouble:saldo]]];
         return cell;
     }
     Drink* d =[self getDrinkFromTable:indexPath];

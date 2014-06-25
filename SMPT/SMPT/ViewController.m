@@ -53,14 +53,15 @@
                 u.id = [[dc objectForKey:@"id"]integerValue];
                 u.first_name = [dc objectForKey:@"voornaam"];
                 u.last_name = [dc objectForKey:@"achternaam"];
-                u.saldo = [[dc objectForKey:@"saldo"]decimalValue];
+                u.saldo = [[dc objectForKey:@"saldo"]doubleValue];
+            u.theoretical_saldo = [[dc objectForKey:@"saldo"]doubleValue];
                 NSLog(@"%@",u.first_name);
             [DataContainer setCurrentUser:u];
             NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
             [formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
             [formatter setCurrencyCode:@"EUR"];
             [formatter setLocale:[[NSLocale alloc]initWithLocaleIdentifier:@"nl_NL" ]];
-            [self.lbSaldo setText:[NSString stringWithFormat:@"Huidig saldo: %@",[formatter stringFromNumber: [NSDecimalNumber decimalNumberWithDecimal:u.saldo]]]];
+            [self.lbSaldo setText:[NSString stringWithFormat:@"Huidig saldo: %@",[formatter stringFromNumber: [NSNumber numberWithDouble:u.saldo]]]];
                 
                 
             }
