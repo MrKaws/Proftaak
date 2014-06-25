@@ -210,7 +210,18 @@
     int amount = [[lblDrinksAmount text] intValue];
     double drinksPrice = [drinksModal[1] doubleValue];
     double totalprice = amount * drinksPrice;
-    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    NSString* title;
+    NSString* message;
+    double saldo = [DataContainer getCurrentUser].theoretical_saldo;
+    saldo = saldo - totalprice;
+    NSLog(@"%f",saldo);
+    if(saldo<0){
+        title= @"Geweigerd";
+        message=@"Onvoldoende saldo";
+    }
+    else{
+    [DataContainer getCurrentUser].theoretical_saldo = saldo;
+     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     [formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
     [formatter setCurrencyCode:@"EUR"];
     [formatter setLocale:[[NSLocale alloc]initWithLocaleIdentifier:@"nl_NL" ]];
@@ -251,14 +262,16 @@
     else{
         doNotAdd = false;
     }
-
+        title = @"Bevestiging";
+        message = @"uw bestelling is toegevoegd";
+        
     //NSMutableArray *saveDrink = [[NSMutableArray alloc]init];
     //[saveDrink addObject:dvc];
   //  [existingDrinks addObject:drink];
-    [DataContainer setOrderedDrinks:existingDrinks];
+        [DataContainer setOrderedDrinks:existingDrinks];}
    // [dvc.orderedDrinks addObject:dvc];
-    alert = [[UIAlertView alloc]initWithTitle: @"Bevestiging"
-                                      message: @"uw bestelling is toegevoegd"
+    alert = [[UIAlertView alloc]initWithTitle: title
+                                      message: message
                                      delegate: self
                             cancelButtonTitle:nil
                             otherButtonTitles:nil,nil];
