@@ -117,6 +117,11 @@
         cell.lblDrinksPrice.text =[NSString stringWithFormat:@"Saldo:%@",[formatter stringFromNumber: [NSNumber numberWithDouble:saldo]]];
         return cell;
     }
+    if(indexPath.section >0){
+        cell.selectionStyle = UITableViewCellSelectionStyleDefault;
+        cell.userInteractionEnabled = YES;
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
     Drink* d =[self getDrinkFromTable:indexPath];
     
     cell.lblDrinksName.text = d.name;
