@@ -54,6 +54,12 @@ static NSString * const kRegionLookupIdentifier = @"MyBeaconIdentifier";
 {
     self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil options:nil];
 }
+- (IBAction)cancelOrder:(id)sender {
+    [self.locationManager stopMonitoringForRegion:self.beaconRegion];
+    [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion];
+    [self dismissViewControllerAnimated:true completion:nil];
+
+}
 
 -(void)initBeaconRegion
 {
