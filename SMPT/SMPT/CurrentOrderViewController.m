@@ -13,6 +13,7 @@
 #import "Drink.h"
 #import "OrderedDrinksTableViewCell.h"
 
+
 @interface CurrentOrderViewController ()
 
 @end
@@ -126,6 +127,7 @@
 
         //replace appname with any specific name you want
         [orders removeAllObjects];
+        [DataContainer getCurrentUser].theoretical_saldo = [DataContainer getCurrentUser].saldo;
         [mijnSUPERtabel reloadData];
         NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
         [formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
@@ -139,6 +141,7 @@
         [lblTotalPrice setText:[NSString stringWithFormat:@"%@\t\t\t\t\t\t\t%@", @"Totaal: ", [formatter stringFromNumber:@(value)]]];
         [lblTotalPrice setNumberOfLines:0];
         [lblTotalPrice sizeToFit];
+        
 
    //     [self.tvOrders setText:@"Er zijn nog geen bestellingen"];
     //    [self.lblTotalPrice setText:@""];
@@ -181,6 +184,8 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    double price = [((Drink*)[orders objectAtIndex:indexPath.row]).totalPrice doubleValue];
+    [DataContainer getCurrentUser].theoretical_saldo += price;
     [orders removeObjectAtIndex:indexPath.row];
     [mijnSUPERtabel reloadData];
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
