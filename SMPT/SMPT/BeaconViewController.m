@@ -100,6 +100,7 @@ static NSString * const kRegionLookupIdentifier = @"MyBeaconIdentifier";
                 [self.locationManager stopMonitoringForRegion:self.beaconRegion];
                 [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion];
                 NSLog(@"Disabled ranging.");
+                [self performSegueWithIdentifier:@"paymentSegue" sender:self];
             }
         }
     }

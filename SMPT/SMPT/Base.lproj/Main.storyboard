@@ -238,11 +238,12 @@
                     <navigationItem key="navigationItem" title="iBeacon" id="Kzo-cb-azc"/>
                     <connections>
                         <outlet property="AnimatedPicture" destination="m8w-KT-nr4" id="Wh1-VG-bS8"/>
+                        <segue destination="x9N-gD-111" kind="modal" identifier="paymentSegue" id="7jZ-7b-XcY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ySh-6s-TjD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1508" y="601"/>
+            <point key="canvasLocation" x="1540" y="655"/>
         </scene>
         <!--View Geld Animatie-->
         <scene sceneID="rM9-n2-WgZ">
@@ -270,7 +271,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pmU-xK-y3j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="485" y="494"/>
+            <point key="canvasLocation" x="523" y="416"/>
         </scene>
         <!--Drinks List View Controller - Drankenlijst-->
         <scene sceneID="3hu-oZ-zfl">
@@ -470,4 +471,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="7jZ-7b-XcY"/>
+    </inferredMetricsTieBreakers>
 </document>
