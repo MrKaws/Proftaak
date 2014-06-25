@@ -23,6 +23,7 @@
 @synthesize scrollView;
 @synthesize activeField;
 @synthesize lblDrinksAmount;
+@synthesize drinksImage;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -58,6 +59,7 @@
    // cell.lblDrinksPrice.text=[formatter stringFromNumber: drinksPrice[row]];
     [lblDrinksPrice setText: [NSString stringWithFormat:@"%@", [formatter stringFromNumber:@([drinksModal[1]doubleValue])]]];
 		    self.navigationItem.title = drinksModal[0];
+    drinksImage.image = [UIImage imageNamed:drinksModal[0]];
     [lblDrinksAmount setText:[NSString stringWithFormat:@"%d",1]];
     [lblTotal setText:[NSString stringWithFormat:@"%@", [formatter stringFromNumber:@([drinksModal[1] doubleValue])]]];
     

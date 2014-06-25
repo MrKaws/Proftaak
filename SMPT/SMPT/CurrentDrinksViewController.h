@@ -27,6 +27,7 @@
 - (void)textFieldDidEndEditing:(UITextField *)textField;
 - (void)keyboardWillShow:(NSNotification*)aNotification;
 - (void)keyboardWillBeHidden:(NSNotification*)aNotification;
+@property (strong, nonatomic) IBOutlet UIImageView *drinksImage;
 
 
 @end
