@@ -37,12 +37,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:72.0/255.0 green:72.0/255.0 blue:73.0/255.0 alpha:1.0]];
-    [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:10.0/255.0 green:115.0/225.0 blue:225.0/225.0 alpha:1.0]];
+
    [self.navigationController.navigationBar setTranslucent:NO];
     self.view.backgroundColor = [UIColor colorWithRed:72.0/255.0 green:72.0/255.0 blue:73.0/255.0 alpha:1.0];
-    self.view.tintColor =[UIColor colorWithRed:72.0/255.0 green:72.0/255.0 blue:73.0/255.0 alpha:1.0];
     [self registerForKeyboardNotifications];
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
 
@@ -76,17 +73,31 @@
 - (IBAction)btnPlusOne:(id)sender {
     int currentValue = [lblDrinksAmount.text intValue];
     int newValue = currentValue + 1;
+    double drinksPrice = [drinksModal[1] doubleValue];
+    double totalprice = newValue * drinksPrice;
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+    [formatter setCurrencyCode:@"EUR"];
+    [formatter setLocale:[[NSLocale alloc]initWithLocaleIdentifier:@"nl_NL" ]];
+    [lblTotal  setText:[formatter stringFromNumber: @(totalprice)]];
     [lblDrinksAmount setText:[NSString stringWithFormat:@"%d", newValue]];
+
 }
 
 - (IBAction)btnMinusOne:(id)sender {
     int currentValue = [lblDrinksAmount.text intValue];
     int newValue = currentValue - 1;
-   
+    double drinksPrice = [drinksModal[1] doubleValue];
+    double totalprice = newValue * drinksPrice;
     if(currentValue < 1){
         [lblDrinksAmount setText:[NSString stringWithFormat:@"%d", 0]];
     }else{
         [lblDrinksAmount setText:[NSString stringWithFormat:@"%d", newValue]];
+        NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+        [formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+        [formatter setCurrencyCode:@"EUR"];
+        [formatter setLocale:[[NSLocale alloc]initWithLocaleIdentifier:@"nl_NL" ]];
+        [lblTotal  setText:[formatter stringFromNumber: @(totalprice)]];
     }
 }
 
