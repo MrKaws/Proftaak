@@ -24,6 +24,7 @@
 @synthesize activeField;
 @synthesize lblDrinksAmount;
 @synthesize drinksImage;
+@synthesize barButtonText;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -63,7 +64,14 @@
     [lblDrinksAmount setText:[NSString stringWithFormat:@"%d",1]];
     [lblTotal setText:[NSString stringWithFormat:@"%@", [formatter stringFromNumber:@([drinksModal[1] doubleValue])]]];
     
-    
+    int currentValue = [lblDrinksAmount.text intValue];
+ 
+    double drinksPrice = [drinksModal[1] doubleValue];
+    double totalprice = currentValue * drinksPrice;
+    double saldo = [DataContainer getCurrentUser].theoretical_saldo;
+    double newSaldo = saldo - totalprice;
+    [self.barButtonText setTitle:[formatter stringFromNumber:[NSNumber numberWithDouble:newSaldo]]];
+
 }
 - (void) tapped
 {
@@ -83,6 +91,9 @@
     [formatter setLocale:[[NSLocale alloc]initWithLocaleIdentifier:@"nl_NL" ]];
     [lblTotal  setText:[formatter stringFromNumber: @(totalprice)]];
     [lblDrinksAmount setText:[NSString stringWithFormat:@"%d", newValue]];
+    double saldo = [DataContainer getCurrentUser].theoretical_saldo;
+    double newSaldo = saldo - totalprice;
+    [self.barButtonText setTitle:[formatter stringFromNumber:[NSNumber numberWithDouble:newSaldo]]];
 
 }
 
@@ -100,6 +111,9 @@
         [formatter setCurrencyCode:@"EUR"];
         [formatter setLocale:[[NSLocale alloc]initWithLocaleIdentifier:@"nl_NL" ]];
         [lblTotal  setText:[formatter stringFromNumber: @(totalprice)]];
+        double saldo = [DataContainer getCurrentUser].theoretical_saldo;
+        double newSaldo = saldo - totalprice;
+        [self.barButtonText setTitle:[formatter stringFromNumber:[NSNumber numberWithDouble:newSaldo]]];
     }
 }
 

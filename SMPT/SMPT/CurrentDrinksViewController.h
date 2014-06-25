@@ -28,6 +28,7 @@
 - (void)keyboardWillShow:(NSNotification*)aNotification;
 - (void)keyboardWillBeHidden:(NSNotification*)aNotification;
 @property (strong, nonatomic) IBOutlet UIImageView *drinksImage;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *barButtonText;
 
 
 @end

@@ -441,8 +441,11 @@
                         </subviews>
                         <color key="backgroundColor" red="0.28235294119999998" green="0.28235294119999998" blue="0.28627450980000002" alpha="1" colorSpace="deviceRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Drankje" id="giq-kZ-gI7"/>
+                    <navigationItem key="navigationItem" title="Drankje" id="giq-kZ-gI7">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="fMx-3b-Br0"/>
+                    </navigationItem>
                     <connections>
+                        <outlet property="barButtonText" destination="fMx-3b-Br0" id="kju-0V-Qzk"/>
                         <outlet property="drinksImage" destination="a2Z-um-mWI" id="h9t-yu-s5S"/>
                         <outlet property="lblDrinksAmount" destination="wvg-Oc-48T" id="Ggg-3F-ysF"/>
                         <outlet property="lblDrinksPrice" destination="UKS-vr-8Dn" id="lrf-j8-Nxc"/>
