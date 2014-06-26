@@ -74,6 +74,7 @@
     }
     if(--seconds == 0){
         [timer invalidate];
+        [self dismissViewControllerAnimated:NO completion:self.homeBlock];
         
                 //[self closeAlert];
     }
