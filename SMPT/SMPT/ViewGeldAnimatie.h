@@ -13,5 +13,8 @@
     IBOutlet UIImageView *AnimatedPicture2;
 }
 @property (nonatomic, copy) void (^homeBlock)();
+@property UIAlertView *alert;
+@property NSTimer *timer;
+@property int seconds;
 
 @end
