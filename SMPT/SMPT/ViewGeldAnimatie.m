@@ -64,17 +64,15 @@
                                           delegate:self
                                  cancelButtonTitle:nil
                                  otherButtonTitles:nil, nil];
-        
+            
         [alert show];
         
-        if(--seconds == 0){
-            [timer invalidate];
-           
-            //[NSTimer scheduledTimerWithTimeInterval:1.4 target:self selector:@selector(closeAlert) userInfo:nil repeats:NO];
-            [self closeAlert];
-            [self dismissViewControllerAnimated:NO completion:self.homeBlock];
-        }
-
+            }
+    if(--seconds == 0){
+        [timer invalidate];
+        
+        //[NSTimer scheduledTimerWithTimeInterval:1.4 target:self selector:@selector(closeAlert) userInfo:nil repeats:NO];
+        [self closeAlert];
     }
 }
 
