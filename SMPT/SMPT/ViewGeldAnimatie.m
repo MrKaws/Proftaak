@@ -49,18 +49,7 @@
                                                userInfo:nil
                                                 repeats:YES];
         seconds = 7;
-        if(seconds == 0){
-            alert = [[UIAlertView alloc] initWithTitle:@"Melding"
-                                               message:@"Uw bestelling is doorgevoerd"
-                                              delegate:self
-                                     cancelButtonTitle:nil
-                                     otherButtonTitles:nil, nil];
-        
-        [alert show];
-        [NSTimer scheduledTimerWithTimeInterval:0.7 target:self selector:@selector(closeAlert) userInfo:nil repeats:NO];
-        [self dismissViewControllerAnimated:NO completion:self.homeBlock];
-        }
-    }
+           }
 }
 - (void)didReceiveMemoryWarning
 {
@@ -70,7 +59,20 @@
 
 -(void)countDown {
     if (--seconds == 0) {
+        
         [timer invalidate];
+        if(seconds == 0){
+            alert = [[UIAlertView alloc] initWithTitle:@"Melding"
+                                               message:@"Uw bestelling is doorgevoerd"
+                                              delegate:self
+                                     cancelButtonTitle:nil
+                                     otherButtonTitles:nil, nil];
+            
+            [alert show];
+            [NSTimer scheduledTimerWithTimeInterval:0.7 target:self selector:@selector(closeAlert) userInfo:nil repeats:NO];
+            [self dismissViewControllerAnimated:NO completion:self.homeBlock];
+        }
+
     }
 }
 
