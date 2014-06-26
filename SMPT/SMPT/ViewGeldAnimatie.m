@@ -68,8 +68,9 @@
         [alert show];
         
             }
-    if(--seconds >=1 && --seconds <=2){
-        [NSTimer scheduledTimerWithTimeInterval:1.4 target:self selector:@selector(closeAlert) userInfo:nil repeats:NO];
+    if(--seconds ==2){
+     //   [NSTimer scheduledTimerWithTimeInterval:1.4 target:self selector:@selector(closeAlert) userInfo:nil repeats:NO];
+        [alert dismissWithClickedButtonIndex:0 animated:YES];
 
     }
     if(--seconds == 0){
