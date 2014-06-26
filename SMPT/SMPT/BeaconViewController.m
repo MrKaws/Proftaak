@@ -10,6 +10,8 @@
 #import "ViewController.h"
 #import "WebRequests.h"
 #import "DataContainer.h"
+#import "CurrentOrderViewController.h"
+#import "ViewGeldAnimatie.h"
 
 static NSString * const kProximityUUID = @"7AF66857-FF47-4225-AC7C-B562511DB4CE";
 static NSString * const kRegionLookupIdentifier = @"MyBeaconIdentifier";
@@ -55,6 +57,9 @@ static NSString * const kRegionLookupIdentifier = @"MyBeaconIdentifier";
     self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil options:nil];
 }
 - (IBAction)cancelOrder:(id)sender {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
     [self.locationManager stopMonitoringForRegion:self.beaconRegion];
     [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion];
     [self dismissViewControllerAnimated:true completion:nil];
@@ -100,13 +105,18 @@ static NSString * const kRegionLookupIdentifier = @"MyBeaconIdentifier";
                 };
 
                 [WebRequests sendOrder:[DataContainer getOrderedDrinks] withBlock:getDrinkBlock andbID:beacon.proximityUUID.UUIDString];
-                
+                if(self.homeBlock != nil){
+                    
+                }
                 
                 //beacon uit
                 [self.locationManager stopMonitoringForRegion:self.beaconRegion];
                 [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion];
                 NSLog(@"Disabled ranging.");
-                [self performSegueWithIdentifier:@"paymentSegue" sender:self];
+                ViewGeldAnimatie *secondViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"moneyAnimation"];
+                secondViewController.homeBlock = ^void(){[self dismissViewControllerAnimated:NO completion:self.homeBlock];};
+                [self presentModalViewController:secondViewController animated:YES];
+                //[self performSegueWithIdentifier:@"paymentSegue" sender:self];
             }
         }
     }

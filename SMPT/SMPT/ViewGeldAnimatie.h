@@ -12,5 +12,6 @@
 {
     IBOutlet UIImageView *AnimatedPicture2;
 }
+@property (nonatomic, copy) void (^homeBlock)();
 
 @end

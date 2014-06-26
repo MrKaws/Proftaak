@@ -14,8 +14,10 @@
 @interface BeaconViewController : UIViewController<
     CLLocationManagerDelegate,
     CBPeripheralManagerDelegate>
+
 {
   IBOutlet UIImageView *AnimatedPicture;
 }
+@property (nonatomic, copy) void (^homeBlock)();
 - (IBAction)btnHome:(id)sender;
 @end

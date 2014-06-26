@@ -12,6 +12,7 @@
 #import "ViewController.h"
 #import "Drink.h"
 #import "OrderedDrinksTableViewCell.h"
+#import "BeaconViewController.h"
 
 
 @interface CurrentOrderViewController ()
@@ -97,7 +98,8 @@
       ViewController *vc = [[ViewController alloc]init];
         [vc getDrink];
         ViewController *viewController = [[ViewController alloc] init];
-        ViewController *secondViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"BeaconView"];
+        BeaconViewController *secondViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"BeaconView"];
+        secondViewController.homeBlock = ^void() {[self.navigationController popToRootViewControllerAnimated:NO];};
         [self presentModalViewController:secondViewController animated:YES]; 
         
     }

@@ -98,6 +98,7 @@
 }
 
 - (IBAction)btnMinusOne:(id)sender {
+    
     int currentValue = [lblDrinksAmount.text intValue];
     int newValue = currentValue - 1;
     double drinksPrice = [drinksModal[1] doubleValue];
