@@ -48,7 +48,7 @@
                                                selector:@selector(countDown)
                                                userInfo:nil
                                                 repeats:YES];
-        seconds = 4;
+        seconds = 5;
            }
 }
 - (void)didReceiveMemoryWarning
@@ -58,7 +58,7 @@
 }
 
 -(void)countDown {
-    if (--seconds == 2) {
+    if (--seconds == 4) {
         alert = [[UIAlertView alloc] initWithTitle:@"Melding"
                                            message:@"Uw bestelling is doorgevoerd"
                                           delegate:self
