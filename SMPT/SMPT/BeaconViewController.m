@@ -86,7 +86,7 @@ static NSString * const kRegionLookupIdentifier = @"MyBeaconIdentifier";
         NSLog(@"Located %lu beacon(s).", (unsigned long)[beacons count]);
         for (CLBeacon * beacon in beacons) {
             NSLog(@"%.5f. - %@", beacon.accuracy, beacon.proximityUUID.UUIDString);
-            if(beacon.accuracy < 0.05)
+            if(beacon.accuracy < 0.10)
             {
                 NSLog(@"verstuur");
                 void (^getDrinkBlock)(Boolean, id, NSError*)  =
