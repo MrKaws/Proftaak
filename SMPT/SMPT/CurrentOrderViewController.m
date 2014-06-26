@@ -14,7 +14,6 @@
 #import "OrderedDrinksTableViewCell.h"
 #import "BeaconViewController.h"
 
-
 @interface CurrentOrderViewController ()
 
 @end
