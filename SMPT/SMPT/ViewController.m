@@ -70,7 +70,10 @@
 
     [WebRequests getUserData:1 withBlock:getUserBlock];
 }
-
+-(void) viewDidAppear:(BOOL)animated{
+    [self getUserData];
+    [DataContainer getOrderedDrinks].removeAllObjects;
+}
 -(void)getDrink
 {
 //void (^getDrinkBlock)(Boolean, id, NSError*)  =
