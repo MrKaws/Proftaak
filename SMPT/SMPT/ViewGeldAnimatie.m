@@ -70,7 +70,8 @@
         if(seconds == 0){
             [timer invalidate];
            
-            [NSTimer scheduledTimerWithTimeInterval:1.4 target:self selector:@selector(closeAlert) userInfo:nil repeats:NO];
+            //[NSTimer scheduledTimerWithTimeInterval:1.4 target:self selector:@selector(closeAlert) userInfo:nil repeats:NO];
+            [self closeAlert];
             [self dismissViewControllerAnimated:NO completion:self.homeBlock];
         }
 
