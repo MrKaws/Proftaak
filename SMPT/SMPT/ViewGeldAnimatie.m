@@ -67,7 +67,7 @@
         
         [alert show];
         
-        if(seconds == 0){
+        if(--seconds == 0){
             [timer invalidate];
            
             //[NSTimer scheduledTimerWithTimeInterval:1.4 target:self selector:@selector(closeAlert) userInfo:nil repeats:NO];
