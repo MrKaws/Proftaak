@@ -290,7 +290,7 @@
                             cancelButtonTitle:nil
                             otherButtonTitles:nil,nil];
     [alert show];
-    [NSTimer scheduledTimerWithTimeInterval:0.7 target:self selector:@selector(closeAlert) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:1.2 target:self selector:@selector(closeAlert) userInfo:nil repeats:NO];
     //[self dismissViewControllerAnimated:true completion:nil];
     [self.navigationController popViewControllerAnimated:YES];
 }
